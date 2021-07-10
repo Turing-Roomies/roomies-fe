@@ -1,9 +1,19 @@
 import React from 'react'
+import { NavLink, Link } from 'react-router-dom'
 
 export default function Navbar() {
   return (
     <header>
-      <h1>Roomies</h1>
+      <nav>
+      <Link to='/' title='Roomies'><h1>Roomies</h1></Link>
+      <div>
+        <ul>
+          <li>
+            <Link to='/dashboard' title='Dashboard'>Dashboard</Link>
+          </li>
+        </ul>
+      </div>
+      </nav>
     </header>
   )
 }
