@@ -1,4 +1,4 @@
-export const users = {
+export const fakeData = {
         "data": [{
             "type": "users",
             "id": "1",
