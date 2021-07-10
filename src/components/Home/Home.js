@@ -1,10 +1,13 @@
 import React from 'react'
+import './Home.scss'
 
 export default function Home() {
   
   return (
-    <div>
-      <h1>Welcome to Roomies!</h1>
-    </div>
+    <section className='welcome-section'>
+      <div className='welcome-container' >
+        <h2 className='welcome-message'>Find your<br></br>perfect<br></br> match.</h2>
+      </div>
+    </section>
   )
 }

@@ -1,0 +1,25 @@
+@import '../../index.scss';
+
+.welcome-message {
+  align-self: center;
+  color: $burntOrange;
+  font-family: $accentFont;
+  font-size: 65px;
+  margin-left: 1em;
+}
+
+.welcome-container {
+  background-image: url(../../assets/homepage.jpeg);
+  background-position: center;
+  background-size: cover;
+  @include dimensions(90%, 80vh);
+  border-radius: 15px;
+  @include flex(row);
+}
+
+.welcome-section {
+  @include flex(column);
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
