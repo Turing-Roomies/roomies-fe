@@ -1,3 +1,9 @@
+@import '../../index.scss';
+
+main {
+  @include flex(column);
+}
+
 .App {
   text-align: center;
 }

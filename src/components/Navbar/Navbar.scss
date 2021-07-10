@@ -1,0 +1,23 @@
+@import '../../index.scss';
+
+header {
+  font-family: $primaryFont;
+  // border: solid red 1px;
+  @include dimensions(100%, 6em);
+}
+
+nav {
+  @include flex(row);
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  margin-right: 5.75em;
+}
+
+.page-header {
+  font-size: 2em;
+  margin-left: 2.75em;
+}

@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'
 import Home from '../Home/Home'
-import './App.css'
+import './App.scss'
 
 export default function App() {
 
