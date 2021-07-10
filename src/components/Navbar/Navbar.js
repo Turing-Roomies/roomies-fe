@@ -9,7 +9,7 @@ export default function Navbar() {
       <div>
         <ul>
           <li>
-            <Link to='/dashboard' title='Dashboard'>Dashboard</Link>
+            <NavLink to='/dashboard' title='Dashboard'>Dashboard</NavLink>
           </li>
         </ul>
       </div>

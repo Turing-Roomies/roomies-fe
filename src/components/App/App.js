@@ -8,12 +8,12 @@ export default function App() {
 
   return (
     <main>
-      <Switch>
         <Navbar />
-        <Route 
-        path='/'
-        component={Home}
-        />
+      <Switch>
+        <Route
+          exact path='/'
+          component={Home}
+          />
       </Switch>
     </main>
   )
