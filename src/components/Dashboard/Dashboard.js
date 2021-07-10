@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { fakeData } from '../../data'
+import React, { useState, useEffect } from 'react'
+import Card from '../Card/Card'
 
 export default function Dashboard() {
-    const [users, setUsers] = useState([])
-
-    useEffect(() => {
-        setUsers(fakeData.data)
-    })
 
     return (
-        <h1>YEET</h1>
+        <h1>Mermaid Man</h1>
     )
 }
