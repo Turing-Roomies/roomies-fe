@@ -3,3 +3,12 @@
 header {
   font-family: $primaryFont;
 }
+
+nav {
+  @include flex(row);
+  justify-content: space-between;
+}
+
+ul {
+  list-style-type: none;
+}
