@@ -4,6 +4,7 @@
 
 main {
   @include flex(column);
+  width: 100%;
 }
 
 .App {
