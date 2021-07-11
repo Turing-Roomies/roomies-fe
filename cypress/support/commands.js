@@ -3,7 +3,7 @@ Cypress.Commands.add('loadDashboard', () => {
   cy.get('.nav-links > li > a').click()
 })
 
-Cypress.Commands.add(fetchRoomies', () => {
+Cypress.Commands.add('fetchRoomies', () => {
     cy.intercept('https://vote-local-fe.herokuapp.com/api/v1/users',
     {
         "data": [{
