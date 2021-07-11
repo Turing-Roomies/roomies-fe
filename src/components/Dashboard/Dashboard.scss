@@ -1,13 +1,18 @@
 .cards-container {
   width: 100%;
   min-height: 100%;
-
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+  text-align: center;
 }
 
 .cards-container::before {
+  position: absolute;
   display: block;
   content: '';
   height: 2px;
   width: 100%;
   background-color: #499F68;
+  left: 0;
 }
