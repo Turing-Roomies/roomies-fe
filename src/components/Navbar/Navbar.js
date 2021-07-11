@@ -10,7 +10,7 @@ export default function Navbar() {
       <nav>
       <Link to='/' title='Roomies' style={linkStyle}><h1 className='page-header'>Roomies</h1></Link>
       <div>
-        <ul>
+        <ul className='nav-links'>
           <li>
             <NavLink to='/dashboard' title='Dashboard' style={linkStyle} activeStyle={activeStyle}>Dashboard</NavLink>
           </li>
