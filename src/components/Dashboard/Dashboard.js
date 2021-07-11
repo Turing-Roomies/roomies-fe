@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import Card from '../Card/Card'
 import Context from '../../Context'
+import './Dashboard.scss'
 
 export default function Dashboard() {
     const users = useContext(Context)
