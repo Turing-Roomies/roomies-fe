@@ -4,14 +4,13 @@ import Context from '../../Context'
 
 export default function Dashboard() {
     const users = useContext(Context)
-       const cards = users.map((user) => {
-console.log(user);
+    const cards = users.map((user) => {
         return <Card  user={user} key={user.id} />
-      })
+    })
 
-        return(
-            <div>
-                {cards}
-            </div>
-        )
+    return(
+        <div className='cards-container'>
+            {cards}
+        </div>
+    )
 }
