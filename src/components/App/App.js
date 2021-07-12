@@ -6,13 +6,22 @@ import Home from '../Home/Home'
 import './App.scss'
 import Dashboard from '../Dashboard/Dashboard'
 import Context from '../../Context'
+import { getUsers } from '../../utilities/apiCalls'
 
 export default function App() {
 
   const [users, setUsers] = useState([])
 
-  useEffect(() => {
-      setUsers(fakeData.data)
+  useEffect(() => {  
+    const fetchUsers = async () => {
+      try {
+        const response = await getUsers()
+        return response
+      } catch (err) {
+        console.log(err) //set 
+      }
+    }
+    setUsers(fetchUsers())
   }, [])
 
   return (
