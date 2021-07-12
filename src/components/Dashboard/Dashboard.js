@@ -5,6 +5,7 @@ import './Dashboard.scss'
 
 export default function Dashboard() {
     const users = useContext(Context)
+
     const cards = users.map((user) => {
         return <Card  user={user} key={user.id} />
     })
