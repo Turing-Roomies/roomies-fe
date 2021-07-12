@@ -11,8 +11,11 @@ console.log(email);
             <h1>{name},</h1>
             <h3>{age}</h3>
           </div>
+          <div className='card-info'>
           <p>City: {location}</p>
           <p>Gender: {gender}</p>
+          </div>
+          <button className='req-contact'>Request Contact</button>
         </article>
     )
 }
