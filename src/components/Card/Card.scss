@@ -2,6 +2,16 @@
 
 .card {
   margin-top: 40px;
-  background-color: #C2C5BB;
+  background-color: $beige;
   border: 2px solid $lightGreen;
+}
+
+.card-name {
+  @include flex(row);
+  justify-content: center;
+  align-items: baseline;
+}
+
+.card-name > h3 {
+  margin-left: 6px;
 }

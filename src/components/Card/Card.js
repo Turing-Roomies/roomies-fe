@@ -7,11 +7,12 @@ console.log(email);
 
     return (
         <article className='card'>
-            <h1>{name}</h1>
-            <p>Email: {email}</p>
-            <p>City: {location}</p>
-            <p>Gender: {gender}</p>
-            <p>Age: {age}</p>
+          <div className='card-name'>
+            <h1>{name},</h1>
+            <h3>{age}</h3>
+          </div>
+          <p>City: {location}</p>
+          <p>Gender: {gender}</p>
         </article>
     )
 }
