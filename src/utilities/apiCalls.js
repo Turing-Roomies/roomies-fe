@@ -1,6 +1,6 @@
 export const getUsers = async () => {
     try {
-        const response = await fetch('https://animechan.vercel.app/api/random')
+        const response = await fetch('https://turing-roomies-be.herokuapp.com/api/v1/users')
         const checkedResponse = await checkResponse(response)
         return checkedResponse
     } catch (err) {
