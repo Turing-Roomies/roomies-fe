@@ -16,9 +16,10 @@ export default function App() {
     const fetchUsers = async () => {
       try {
         const response = await getUsers()
+        console.log(response)
         return response
       } catch (err) {
-        console.log(err) //set 
+        console.log(err) //set context state of error here
       }
     }
     setUsers(fetchUsers())
