@@ -4,7 +4,7 @@ Cypress.Commands.add('loadDashboard', () => {
 })
 
 Cypress.Commands.add('fetchRoomies', () => {
-    cy.intercept('https://vote-local-fe.herokuapp.com/api/v1/users',
+    cy.intercept('https://turing-roomies-be.herokuapp.com/api/v1/users',
     {
         "data": [{
             "type": "users",
@@ -12,7 +12,10 @@ Cypress.Commands.add('fetchRoomies', () => {
             "attributes": {
                 "email": "whatever@example.com",
                 "name": "Harrison",
-                "location": "Denver",
+                "location": {
+                    "city": "Denver",
+                    "state": "CO"
+                },
                 "gender": "male",
                 "age": 26,
                 "roomies": [{
@@ -27,7 +30,10 @@ Cypress.Commands.add('fetchRoomies', () => {
             "attributes": {
                 "email": "someother@example.com",
                 "name": "Wyatt",
-                "location": "Denver",
+                "location": {
+                    "city": "Denver",
+                    "state": "CO"
+                },
                 "gender": "male",
                 "age": 30,
                 "roomies": [
@@ -48,7 +54,10 @@ Cypress.Commands.add('fetchRoomies', () => {
             "attributes": {
                 "email": "emailme@example.com",
                 "name": "Andrew",
-                "location": "West Palm Beach",
+                "location": {
+                    "city": "West Palm Beach",
+                    "state": "FL"
+                },
                 "gender": "male",
                 "age": 25,
                 "roomies": [
@@ -65,7 +74,10 @@ Cypress.Commands.add('fetchRoomies', () => {
             "attributes": {
                 "email": "email@example.com",
                 "name": "Sarah",
-                "location": "Denver",
+                "location": {
+                    "city": "Denver",
+                    "state": "CO"
+                },
                 "gender": "female",
                 "age": 33,
                 "roomies": [
@@ -82,7 +94,10 @@ Cypress.Commands.add('fetchRoomies', () => {
             "attributes": {
                 "email": "somebodysemail@example.com",
                 "name": "Michann",
-                "location": "Denver",
+                "location": {
+                    "city": "Denver",
+                    "state": "CO"
+                },
                 "gender": "female",
                 "age": 27,
                 "roomies": [

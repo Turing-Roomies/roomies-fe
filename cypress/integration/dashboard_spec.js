@@ -1,5 +1,6 @@
 describe('Dashboard', () => {
     beforeEach( () => {
+        cy.fetchRoomies()
         cy.loadDashboard()
     })
 
@@ -15,11 +16,11 @@ describe('Dashboard', () => {
           .get('.cards-container').should('be.visible')
           .get('.card').should('have.length', 5)
 
-          .get('.card').eq(0).should('contain', 'Harrison', 'whatever@example.com', 'Denver', 'male', '26')
-          .get('.card').eq(1).should('contain', 'Wyatt', 'someother@example.com', 'Denver', 'male', '30')
-          .get('.card').eq(2).should('contain', 'Andrew', 'emailme@example.com', 'West Palm Beach', 'male', '25')
-          .get('.card').eq(3).should('contain', 'Sarah', 'email@example.com', 'Denver', 'female', '33')
-          .get('.card').eq(4).should('contain', 'Michann', 'somebodysemail@example.com', 'Denver', 'female', '27')
+          .get('.card').eq(0).should('contain', 'Harrison', 'Denver, CO', 'male', '26')
+          .get('.card').eq(1).should('contain', 'Wyatt', 'Denver, CO', 'male', '30')
+          .get('.card').eq(2).should('contain', 'Andrew', 'West Palm Beach, FL', 'male', '25')
+          .get('.card').eq(3).should('contain', 'Sarah', 'Denver, CO', 'female', '33')
+          .get('.card').eq(4).should('contain', 'Michann', 'Denver, CO', 'female', '27')
     })
 
 })
