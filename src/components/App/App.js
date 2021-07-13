@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'
 import Home from '../Home/Home'
+import Requests from '../Requests/Requests'
 import './App.scss'
 import Dashboard from '../Dashboard/Dashboard'
 import UsersContext from '../../Context/UsersContext'
@@ -30,10 +31,11 @@ export default function App() {
     <ErrorContext.Provider value={error}>
       <UsersContext.Provider value={users}>
         <main>
-            <Navbar />
+          <Navbar />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/dashboard' component={Dashboard} />
+            <Route exact path='/requests' component={Requests} />
           </Switch>
         </main>
       </UsersContext.Provider>
