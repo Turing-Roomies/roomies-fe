@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-// import { fakeData } from '../../data'
 import { Switch, Route } from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'
 import Home from '../Home/Home'
