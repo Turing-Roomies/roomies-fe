@@ -1,10 +1,11 @@
+
 import React, { useState, useEffect } from "react"
 import { Switch, Route } from "react-router-dom"
 import Navbar from "../Navbar/Navbar"
 import Home from "../Home/Home"
 import smileyIcon from '../../assets/green-smiley.png'
+import Requests from '../Requests/Requests'
 import dummyData from "../../utilities/dummyData"
-
 import "./App.scss"
 import Dashboard from "../Dashboard/Dashboard"
 import Login from "../Login/Login"
