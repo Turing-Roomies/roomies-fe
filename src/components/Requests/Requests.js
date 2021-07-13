@@ -1,15 +1,24 @@
 import React, { useContext } from 'react'
-import { NavLink, Link } from 'react-router-dom'
-import Context from '../../Context'
+import Context from '../../Context/UsersContext'
 import './Requests.scss'
 import Card from '../Card/Card'
 
 export default function Requests() {
   const users = useContext(Context)
-  return (
-    <div>
-      <Card />
-      
+  console.log(users)
+  if(users.length) {
+    const requestCards = users.map(user => {
+      return <Card user={user} key={user.id} />
+    })
+    return (
+      <div>
+        {requestCards}
+      </div>
+    )}
+    
+    return(
+      <div>
+      <h1>No current requests! Go to your dashboard to find potential roomies!</h1>
     </div>
   )
 }
