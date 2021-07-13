@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Card.scss'
 import locationIcon from '../../assets/location-icon.png'
 import userIcon from '../../assets/user-icon.png'
+import RequestRoomieContext from '../../Context/RequestRoomieContext'
 
 export default function Card({ user }) {
-const { name, location, gender, age } = user.attributes
+const { id, attributes: {name, location, gender, age } } = user
+const requestRoomie = useContext(RequestRoomieContext)
 
     return (
         <article className='card'>
@@ -22,7 +24,7 @@ const { name, location, gender, age } = user.attributes
               <p>{gender}</p>
             </div>
           </div>
-          <button className='req-contact'>Request Contact</button>
+          <button className='req-contact' onClick={ () => requestRoomie(id) }>Request Contact</button>
         </article>
     )
 }
