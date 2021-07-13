@@ -4,8 +4,7 @@ import locationIcon from '../../assets/location-icon.png'
 import userIcon from '../../assets/user-icon.png'
 
 export default function Card({ user }) {
-const { email, name, location, gender, age } = user.attributes
-console.log(email);
+const { name, location, gender, age } = user.attributes
 
     return (
         <article className='card'>
@@ -16,7 +15,7 @@ console.log(email);
           <div className='card-info'>
             <div className='location-container'>
               <img className='location-icon' src={locationIcon} alt='location icon'/>
-              <p>{location}</p>
+              <p>{location.city}, {location.state}</p>
             </div>
             <div className='gender-container'>
               <img className='user-icon' src={userIcon} alt='user icon'/>

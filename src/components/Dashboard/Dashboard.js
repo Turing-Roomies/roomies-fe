@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import Card from '../Card/Card'
-import Context from '../../Context'
 import './Dashboard.scss'
+import UsersContext from '../../Context/UsersContext'
 
 export default function Dashboard() {
-    const users = useContext(Context)
+    const users = useContext(UsersContext)
     const cards = users.map((user) => {
         return <Card  user={user} key={user.id} />
     })
 
     return(
         <div className='cards-container'>
-            {cards}
+            {cards} 
         </div>
     )
 }
