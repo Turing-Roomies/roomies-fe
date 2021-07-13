@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Card.scss'
 import locationIcon from '../../assets/location-icon.png'
 import userIcon from '../../assets/user-icon.png'
 
 export default function Card({ user }) {
 const { name, location, gender, age } = user.attributes
+const [request, setRequest] = useState(false)
+const cursor = {cursor: 'pointer'}
 
+  const changeRequest = () => {
+    setRequest(true)
+  }
+  
     return (
         <article className='card'>
           <div className='card-name'>
@@ -22,7 +28,9 @@ const { name, location, gender, age } = user.attributes
               <p>{gender}</p>
             </div>
           </div>
-          <button className='req-contact'>Request Contact</button>
+          {request ? <button className='req-contact' disabled={true}>Request sent!</button> 
+          : <button className='req-contact' onClick={changeRequest} style={cursor} >Request Contact</button> 
+          }
         </article>
     )
 }
