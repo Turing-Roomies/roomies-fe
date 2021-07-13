@@ -32,6 +32,7 @@ export default function App() {
     }
   )
 
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -44,23 +45,27 @@ export default function App() {
     fetchUsers();
   }, []);
 
+
   const requestRoomie = id => {
-    console.log(47, id)
+    setCurrentUser(prevUser => ({
+      ...prevUser,
+      attributes: {...prevUser.attributes, roomies: [ ...prevUser.attributes.roomies, {id, status: 'pending'} ]}
+    }))
   }
-  
+
   return (
     <RequestRoomieContext.Provider value={requestRoomie}>
       <ErrorContext.Provider value={error}>
         <UsersContext.Provider value={users}>
           <main>
-              <Navbar />
+            <Navbar />
             <Switch>
-              <Route exact path='/' component={Home} />
-              <Route exact path='/dashboard' component={Dashboard} />
+              <Route exact path="/" component={Home} />
+              <Route exact path="/dashboard" component={Dashboard} />
             </Switch>
           </main>
         </UsersContext.Provider>
       </ErrorContext.Provider>
     </RequestRoomieContext.Provider>
-  )
+  );
 }
