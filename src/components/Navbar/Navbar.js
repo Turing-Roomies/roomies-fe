@@ -27,6 +27,9 @@ export default function Navbar({ setCurrentUser }) {
           <li>
             <NavLink to='/dashboard' title='Dashboard' style={linkStyle} activeStyle={activeStyle}>Dashboard</NavLink>
           </li>
+          <li>
+            <NavLink to='/requests' title='Requests' style={linkStyle} activeStyle={activeStyle}>Roomie Requests</NavLink>
+          </li>
         </ul>
       </div>
       </nav>
