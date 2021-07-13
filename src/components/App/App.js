@@ -13,20 +13,89 @@ export default function App() {
 
   const [users, setUsers] = useState([])
   const [error, setError] = useState('')
-
-  useEffect(() => {  
-    const fetchUsers = async () => {
-      try {
-        const response = await getUsers()
-        setUsers(response.data)
-      } catch (err) {
-        setError(err)
+  const [currentUser, setCurrentUser] = useState(
+    {
+      "id": "13",
+      "type": "user",
+      "attributes": {
+        "roomies": [],
+        "email": "dusty@email.com",
+        "name": "The Dust",
+        "gender": "male",
+        "age": 90,
+        "location": {
+        "city": "Orlando",
+        "state": "FL"
+        }
       }
     }
-    fetchUsers()
-  }, [])
+  )
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await getUsers();
+        setUsers(response.data);
+      } catch (err) {
+        setError(err);
+      }
+    };
+    fetchUsers();
+  }, []);
 
   return (
+    <ErrorContext.Provider value={error}>
+      <UsersContext.Provider value={users}>
+        <main>
+            <Navbar />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/dashboard' component={Dashboard} />
+          </Switch>
+        </main>
+      </UsersContext.Provider>
+    </ErrorContext.Provider>
+  )
+} return (
+    <ErrorContext.Provider value={error}>
+      <UsersContext.Provider value={users}>
+        <main>
+            <Navbar />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/dashboard' component={Dashboard} />
+          </Switch>
+        </main>
+      </UsersContext.Provider>
+    </ErrorContext.Provider>
+  )
+} return (
+    <ErrorContext.Provider value={error}>
+      <UsersContext.Provider value={users}>
+        <main>
+            <Navbar />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/dashboard' component={Dashboard} />
+          </Switch>
+        </main>
+      </UsersContext.Provider>
+    </ErrorContext.Provider>
+  )
+} return (
+    <ErrorContext.Provider value={error}>
+      <UsersContext.Provider value={users}>
+        <main>
+            <Navbar />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/dashboard' component={Dashboard} />
+          </Switch>
+        </main>
+      </UsersContext.Provider>
+    </ErrorContext.Provider>
+  )
+} return (
     <ErrorContext.Provider value={error}>
       <UsersContext.Provider value={users}>
         <main>
