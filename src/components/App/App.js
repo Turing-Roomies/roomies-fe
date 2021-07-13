@@ -7,6 +7,7 @@ import './App.scss'
 import Dashboard from '../Dashboard/Dashboard'
 import UsersContext from '../../Context/UsersContext'
 import ErrorContext from '../../Context/ErrorContext'
+import RequestRoomieContext from '../../Context/RequestRoomieContext'
 import { getUsers } from '../../utilities/apiCalls'
 
 export default function App() {
@@ -43,69 +44,23 @@ export default function App() {
     fetchUsers();
   }, []);
 
+  const requestRoomie = id => {
+    console.log(47, id)
+  }
+  
   return (
-    <ErrorContext.Provider value={error}>
-      <UsersContext.Provider value={users}>
-        <main>
-            <Navbar />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/dashboard' component={Dashboard} />
-          </Switch>
-        </main>
-      </UsersContext.Provider>
-    </ErrorContext.Provider>
-  )
-} return (
-    <ErrorContext.Provider value={error}>
-      <UsersContext.Provider value={users}>
-        <main>
-            <Navbar />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/dashboard' component={Dashboard} />
-          </Switch>
-        </main>
-      </UsersContext.Provider>
-    </ErrorContext.Provider>
-  )
-} return (
-    <ErrorContext.Provider value={error}>
-      <UsersContext.Provider value={users}>
-        <main>
-            <Navbar />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/dashboard' component={Dashboard} />
-          </Switch>
-        </main>
-      </UsersContext.Provider>
-    </ErrorContext.Provider>
-  )
-} return (
-    <ErrorContext.Provider value={error}>
-      <UsersContext.Provider value={users}>
-        <main>
-            <Navbar />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/dashboard' component={Dashboard} />
-          </Switch>
-        </main>
-      </UsersContext.Provider>
-    </ErrorContext.Provider>
-  )
-} return (
-    <ErrorContext.Provider value={error}>
-      <UsersContext.Provider value={users}>
-        <main>
-            <Navbar />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/dashboard' component={Dashboard} />
-          </Switch>
-        </main>
-      </UsersContext.Provider>
-    </ErrorContext.Provider>
+    <RequestRoomieContext.Provider value={requestRoomie}>
+      <ErrorContext.Provider value={error}>
+        <UsersContext.Provider value={users}>
+          <main>
+              <Navbar />
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/dashboard' component={Dashboard} />
+            </Switch>
+          </main>
+        </UsersContext.Provider>
+      </ErrorContext.Provider>
+    </RequestRoomieContext.Provider>
   )
 }
