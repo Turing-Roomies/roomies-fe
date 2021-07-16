@@ -5,7 +5,7 @@ import Home from '../Home/Home'
 import './App.scss'
 import Dashboard from '../Dashboard/Dashboard'
 import UsersContext from '../../Context/UsersContext'
-import ErrorContext from '../../Context/ErrorContext'
+import ErrorContext from '../../Context/ErrorContext'//Probably don't need an error context because App can conditionally render error if it's state exists
 import RequestRoomieContext from '../../Context/RequestRoomieContext'
 import CurrentUserContext from '../../Context/CurrentUserContext'
 import { getUsers } from '../../utilities/apiCalls'
