@@ -7,6 +7,7 @@ import Dashboard from '../Dashboard/Dashboard'
 import UsersContext from '../../Context/UsersContext'
 import ErrorContext from '../../Context/ErrorContext'
 import RequestRoomieContext from '../../Context/RequestRoomieContext'
+import CurrentUserContext from '../../Context/CurrentUserContext'
 import { getUsers } from '../../utilities/apiCalls'
 
 export default function App() {
@@ -18,7 +19,7 @@ export default function App() {
       "id": "13",
       "type": "user",
       "attributes": {
-        "roomies": [],
+        "roomies": [{id: '5', status: 'pending'}],
         "email": "dusty@email.com",
         "name": "The Dust",
         "gender": "male",
@@ -45,7 +46,9 @@ export default function App() {
   }, []);
 
 
-  const requestRoomie = id => {
+  const requestRoomie = async id => {
+    // const updatedCurrentUser = await(handleRoomieRequest)
+    // setCurrentUser(response)
     setCurrentUser(prevUser => ({
       ...prevUser,
       attributes: {...prevUser.attributes, roomies: [ ...prevUser.attributes.roomies, {id, status: 'pending'} ]}
@@ -53,18 +56,20 @@ export default function App() {
   }
 
   return (
-    <RequestRoomieContext.Provider value={requestRoomie}>
-      <ErrorContext.Provider value={error}>
-        <UsersContext.Provider value={users}>
-          <main>
-            <Navbar />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/dashboard" component={Dashboard} />
-            </Switch>
-          </main>
-        </UsersContext.Provider>
-      </ErrorContext.Provider>
-    </RequestRoomieContext.Provider>
+    <CurrentUserContext.Provider value={currentUser}>
+      <RequestRoomieContext.Provider value={requestRoomie}>
+        <ErrorContext.Provider value={error}>
+          <UsersContext.Provider value={users}>
+            <main>
+              <Navbar />
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/dashboard" component={Dashboard} />
+              </Switch>
+            </main>
+          </UsersContext.Provider>
+        </ErrorContext.Provider>
+      </RequestRoomieContext.Provider>
+    </CurrentUserContext.Provider>
   );
 }
