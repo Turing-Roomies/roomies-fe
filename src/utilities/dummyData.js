@@ -79,13 +79,13 @@ const dummyData = {
         "id": "6",
         "attributes": {
             "email": "dustin@example.com",
-            "name": "dustin",
+            "name": "Dustin",
             "location": {
                 "city": "Denver",
                 "state": "CO"
             },
             "gender": "male",
-            "age": 25,
+            "age": 24,
             "roomies": []
         }
     }

@@ -21,6 +21,7 @@ describe('Dashboard', () => {
           .get('.card').eq(2).should('contain', 'Andrew', 'West Palm Beach, FL', 'male', '25')
           .get('.card').eq(3).should('contain', 'Sarah', 'Denver, CO', 'female', '33')
           .get('.card').eq(4).should('contain', 'Michann', 'Denver, CO', 'female', '27')
+          .get('.card').eq(5).should('contain', 'Dustin', 'Orlando, FL', 'male', '24')
     })
 
 })
