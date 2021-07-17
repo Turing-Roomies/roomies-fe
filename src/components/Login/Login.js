@@ -16,9 +16,13 @@ export default function Login() {
         console.log()
         //IF either input is empty, or wrong, conditionally render
         //a message that says "Username or password was incorrect"
-        
+        clearInputs()
     }
 
+    const clearInputs = () => {
+        setUserName('')
+        setPassword('')
+    }
 
     return (
         <div>
