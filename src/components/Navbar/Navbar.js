@@ -17,7 +17,7 @@ export default function Navbar({ setCurrentUser }) {
     <header>
       <nav>
       <Link to='/' title='Roomies' style={linkStyle}><h1 className='page-header'>Roomies</h1></Link>
-      <div>
+      <div className='link-container'>
         <ul className='nav-links'>
           {user &&
           <li>

@@ -2,7 +2,6 @@
 
 header {
   font-family: $primaryFont;
-  // border: solid red 1px;
   @include dimensions(100%, 6em);
 }
 
@@ -20,4 +19,11 @@ ul {
 .page-header {
   font-size: 2em;
   margin-left: 2.75em;
+}
+
+.nav-links {
+  @include flex(row);
+  justify-content: space-around;
+  align-items: center;
+  width: 12em;
 }
