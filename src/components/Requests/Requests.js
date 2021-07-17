@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import Context from '../../Context/UsersContext'
+import UsersContext from '../../Context/UsersContext'
 import RequestRoomieContext from '../../Context/RequestRoomieContext'
 import './Requests.scss'
 import Card from '../Card/Card'
 
 export default function Requests() {
-  const users = useContext(Context)
+  const { users } = useContext(UsersContext)
   const requestRoomie = useContext(RequestRoomieContext)
   console.log(users)
   if(users.length) {
