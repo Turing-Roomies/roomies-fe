@@ -1,4 +1,4 @@
-export const dummyData = {
+const dummyData = {
     "data": [{
         "type": "users",
         "id": "1",
@@ -73,7 +73,7 @@ export const dummyData = {
             "age": 27,
             "roomies": []
         }
-    }
+    },
     {
         "type": "users",
         "id": "6",
@@ -91,3 +91,5 @@ export const dummyData = {
     }
     ]
 }
+
+export default dummyData
