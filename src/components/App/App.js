@@ -52,7 +52,7 @@ export default function App() {
         <ErrorContext.Provider value={error}>
           <UsersContext.Provider value={users}>
             <main>
-              <Navbar />
+              <Navbar setCurrentUser={setCurrentUser}/>
               <Switch>
                 <Route
                   exact
