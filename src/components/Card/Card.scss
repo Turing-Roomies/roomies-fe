@@ -1,14 +1,15 @@
 @import '../../index.scss';
 
 .card {
-  font-family: $primaryFont;
+  font-family: $accentFont;
   margin-top: 40px;
-  background-color: $beige;
-  border: 2px solid $lightGreen;
+  background-color: transparent;
+  border: 1.5px solid black;
+  border-radius: 15px;
 }
 
 .card-name {
-  font-family: $accentFont;
+  font-family: $primaryFont;
   @include flex(row);
   justify-content: center;
   align-items: baseline;
@@ -27,14 +28,13 @@
 .req-contact {
   background-color: transparent;
   padding: 8px;
-  outline: none;
-  border-radius: 12px;
-  border: solid $burntOrange 2px;
-  color: $burntOrange;
+  border: solid black 1.5px;
+  color: black;
   margin-bottom: 12px;
 
   &:hover {
-    background-color: $burntOrange;
+    background-color: $mediumGreen;
+    border: solid $mediumGreen 1.5px;
     color: $primaryWhite;
   }
 } 
