@@ -14,7 +14,7 @@ describe('Dashboard', () => {
     it('Should display the feed with possible roomies', () => {
         cy.url().should('eq', 'http://localhost:3000/dashboard')
           .get('.cards-container').should('be.visible')
-          .get('.card').should('have.length', 5)
+          .get('.card').should('have.length', 6)
 
           .get('.card').eq(0).should('contain', 'Harrison', 'Denver, CO', 'male', '26')
           .get('.card').eq(1).should('contain', 'Wyatt', 'Denver, CO', 'male', '30')
