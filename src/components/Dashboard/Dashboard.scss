@@ -1,3 +1,5 @@
+@import '../../index.scss';
+
 .cards-container {
   width: 90%;
   min-height: 100%;
@@ -8,12 +10,14 @@
   margin-left: 5%;
 }
 
-.cards-container::before {
-  position: absolute;
-  display: block;
-  content: '';
-  height: 2px;
-  width: 100%;
-  background-color: #499F68;
-  left: 0;
+.roomies-header {
+font-family: $accentFont;
+margin-left: 4.5em;
+display: flex;
+margin-top: 3em;
+}
+
+.home-icon {
+  @include dimensions(1em, 1em);
+  margin-left: 0.25em;
 }
