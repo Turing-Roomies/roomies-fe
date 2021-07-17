@@ -1,5 +1,6 @@
 import React, { useState, useContext, useRef } from "react"
 import usersContext from "../../Context/UsersContext"
+import './Login.scss'
 
 export default function Login({ setCurrentUser }) {
   const userNameRef = useRef()
@@ -27,17 +28,17 @@ export default function Login({ setCurrentUser }) {
 
 
   return (
-    <div>
+    <div className='form-container'>
       <form onSubmit={e => handleSubmit(e)}>
-        <div>
-          <label> User Name
+        <div className='input-container'>
+          <label className='username'> Username
             <input type="text" ref={userNameRef} name="userName" required />
           </label>
-          <label> password
+          <label className='password'> Password
             <input type="password" ref={passwordRef} name="password" required />
           </label>
           <button className="submit-button" type="submit" >Login</button>
-          {authenticateError && (<h1>Could not find login credentials! Please create an account or try again!</h1>)}
+          {authenticateError && (<p className='wrong-credentials'>Could not find login credentials. Please create an account or try again!</p>)}
         </div>
       </form>
     </div>
