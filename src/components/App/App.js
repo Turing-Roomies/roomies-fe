@@ -4,7 +4,6 @@ import Navbar from '../Navbar/Navbar'
 import Home from '../Home/Home'
 import './App.scss'
 import Dashboard from '../Dashboard/Dashboard'
-import Login from '../Login/Login'
 import UsersContext from '../../Context/UsersContext'
 import ErrorContext from '../../Context/ErrorContext'//Probably don't need an error context because App can conditionally render error if it's state exists
 import RequestRoomieContext from '../../Context/RequestRoomieContext'
