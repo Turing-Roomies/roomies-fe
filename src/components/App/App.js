@@ -49,7 +49,7 @@ export default function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <RequestRoomieContext.Provider value={requestRoomie}>
-        <ErrorContext.Provider value={error}>
+        {/* <ErrorContext.Provider value={error}> */}
           <UsersContext.Provider value={users}>
             <main>
               <Navbar setCurrentUser={setCurrentUser}/>
@@ -72,7 +72,7 @@ export default function App() {
               </Switch>
             </main>
           </UsersContext.Provider>
-        </ErrorContext.Provider>
+        {/* </ErrorContext.Provider> */}
       </RequestRoomieContext.Provider>
     </CurrentUserContext.Provider>
   )
