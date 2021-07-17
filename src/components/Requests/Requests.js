@@ -5,22 +5,25 @@ import './Requests.scss'
 import Card from '../Card/Card'
 
 export default function Requests() {
-  const { users } = useContext(UsersContext)
+  const { currentUser, users } = useContext(UsersContext)
   const requestRoomie = useContext(RequestRoomieContext)
-  console.log(users)
-  if(users.length) {
-    const requestCards = users.map(user => {
+
+  if(currentUser.attributes.roomies.length) {
+    const requestCards = users.filter(user => {
+        return currentUser.attributes.roomies.find(element => user.id === element.id)
+    }) 
+    const roomieCards = requestCards.map(user => {
       return <Card user={user} key={user.id} />
     })
     return (
       <div>
-        {requestCards}
+        {roomieCards}
       </div>
-    )}
+  )}
     
-    return(
-      <div>
-        <h1>No current requests! Go to your dashboard to find potential roomies!</h1>
-      </div>
+  return(
+    <div>
+      <h1>No current requests! Go to your dashboard to find potential roomies!</h1>
+    </div>
   )
 }
