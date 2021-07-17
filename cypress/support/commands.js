@@ -3,9 +3,15 @@ Cypress.Commands.add('loadDashboard', () => {
   cy.get('.nav-links > li > a').click()
 })
 
-Cypress.Commands.add('logInHarrison', () => {
+Cypress.Commands.add('logInWrongUser', () => {
     cy.get('input[name=userName]').type('John').should('have.value', 'John')
       .get('input[name=password]').type('john@example.com').should('have.value', 'john@example.com')
+      .get('.submit-button').click()
+})
+
+Cypress.Commands.add('logInHarrison', () => {
+    cy.get('input[name=userName]').type('Harrison').should('have.value', 'Harrison')
+      .get('input[name=password]').type('harrison@example.com').should('have.value', 'harrison@example.com')
       .get('.submit-button').click()
 })
 

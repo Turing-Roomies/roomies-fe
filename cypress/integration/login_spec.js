@@ -4,16 +4,16 @@ describe('Home', () => {
     })
 
     it('Should display an error if a user\'s credentials aren\'t found', () => {
-        cy.logInHarrison()
+        cy.logInWrongUser()
           .get('h1').should('contain', 'Could not find login credentials! Please create an account or try again!')
+          .get('.nav-links > li').should('have.length', '1')
+          .get('.nav-links > li').eq(0).should('contain', 'Dashboard')
           .get('input[name=userName]').should('have.value', '')
           .get('input[name=password]').should('have.value', '')
     })
 
     it('Should display a welcome message if a user\'s credentials are found', () => {
-        cy.get('input[name=userName]').type('Harrison')
-          .get('input[name=password]').type('harrison@example.com')
-          .get('.submit-button').click()
+        cy.logInHarrison()
           .get('h1').should('contain', 'Welcome, Harrison!')
           .get('.nav-links > li').should('have.length', '2')
           .get('.nav-links > li').eq(0).should('contain', 'Logout')
