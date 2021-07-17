@@ -15,7 +15,7 @@ describe('Home', () => {
           .get('input').should('have.length', 2)
           .get('input[name=userName]').should('have.attr', 'type', 'text')
           .get('input[name=password]').should('have.attr', 'type', 'password')
-
+          .get('button').should('contain', 'Login')
     })
 
     it('Should display the welcome message and image', () => {
