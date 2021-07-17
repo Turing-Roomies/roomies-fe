@@ -11,7 +11,7 @@ const dummyData = {
             },
             "gender": "male",
             "age": 26,
-            "roomies": [{id: 2, status: "pending"}]
+            "roomies": [{id: '2', status: "pending"}, {id: '4', status: "pending"}]
         }
     },
     {
@@ -26,7 +26,7 @@ const dummyData = {
             },
             "gender": "male",
             "age": 30,
-            "roomies": [{id: 1, status: "pending"}]
+            "roomies": [{id: '1', status: "pending"}]
         }
     },
     {
@@ -56,7 +56,7 @@ const dummyData = {
             },
             "gender": "female",
             "age": 33,
-            "roomies": []
+            "roomies": [{id: '1', status: "pending"}]
         }
     },
     {
