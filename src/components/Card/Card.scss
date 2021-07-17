@@ -3,9 +3,10 @@
 .card {
   font-family: $accentFont;
   margin-top: 40px;
-  background-color: transparent;
+  background-color: $primaryWhite;
   border: 1.5px solid black;
   border-radius: 15px;
+  height: 10em;
 }
 
 .card-name {
@@ -29,6 +30,7 @@
   background-color: transparent;
   padding: 8px;
   border: solid black 1.5px;
+  border-radius: 4px;
   color: black;
   margin-bottom: 12px;
 

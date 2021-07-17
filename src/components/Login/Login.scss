@@ -3,6 +3,7 @@
 .submit-button {
   background-color: transparent;
   border: solid black 1px;
+  border-radius: 4px;
   font-family: $primaryFont;
   height: 1.73em;
 }
@@ -33,6 +34,7 @@ input {
   font-family: $primaryFont;
   height: 1.5em;
   border: solid black 1px;
+  border-radius: 4px;
   margin-left: 0.5em;
   margin-right: 0.5em;
 }
