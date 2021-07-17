@@ -14,23 +14,7 @@ export default function App() {
 
   const [users, setUsers] = useState([])
   const [error, setError] = useState('')
-  const [currentUser, setCurrentUser] = useState(
-    {
-      "id": "13",
-      "type": "user",
-      "attributes": {
-        "roomies": [{id: '5', status: 'pending'}],
-        "email": "dusty@email.com",
-        "name": "The Dust",
-        "gender": "male",
-        "age": 90,
-        "location": {
-        "city": "Orlando",
-        "state": "FL"
-        }
-      }
-    }
-  )
+  const [currentUser, setCurrentUser] = useState({})
 
 
   useEffect(() => {
