@@ -14,6 +14,7 @@ export default function Login({setCurrentUser}) {
     const handleChange = event => {
         event.target.name === 'userName' ? setUserName(event.target.value) : setPassword(event.target.value)
         setFormError(false)
+        setAuthenticateError(false)
     }
 
     function handleSubmit(event) {
@@ -33,7 +34,6 @@ export default function Login({setCurrentUser}) {
                 setCurrentUser(user)
                 return
             } else {
-                console.log('DENIED')
                 setAuthenticateError(true)
             }
         })
@@ -63,6 +63,7 @@ export default function Login({setCurrentUser}) {
                     </label>
                     <button className='submit-button' onClick={event => handleSubmit(event)} type='submit'>Login</button>
                     {formError && <h1>UserName or Password is missing!</h1>}
+                    {authenticateError && <h1>Could not find login credentials! Please create an account or try again!</h1>}
                 </div>
             </form>
         </div>
