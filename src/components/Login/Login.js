@@ -5,19 +5,19 @@ export default function Login({ setCurrentUser }) {
   const userNameRef = useRef()
   const passwordRef = useRef()
   const [authenticateError, setAuthenticateError] = useState(false)
-  // const [currentUser, setCurrentUser] = useState({})
 
   const users = useContext(usersContext)
 
-  const handleChange = (event) => {
-    setFormError(false)
-    setAuthenticateError(false)
-  }
 
   function handleSubmit(event) {
     event.preventDefault()
-    authenticate() 
-    // clearInputs()
+    const userLogin = users.find((user) =>  user.attributes.name === userNameRef.current.value && user.attributes.email === passwordRef.current.value )
+    if(userLogin) {
+      setCurrentUser(userLogin)
+    }else{
+      setAuthenticateError(true)
+      clearInputs()
+    }
   }
 
   const clearInputs = () => {
@@ -25,18 +25,6 @@ export default function Login({ setCurrentUser }) {
     passwordRef.current.value = ""
   }
 
-  const authenticate = () => {
-    users.find((user) => {
-      if ( user.attributes.name === userNameRef && user.attributes.email === passwordRef ) {
-        setCurrentUser(user)
-        return
-      } else {
-        setAuthenticateError(true)
-        clearInputs()
-        return
-      }
-    })
-  }
 
   return (
     <div>
