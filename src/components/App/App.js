@@ -70,6 +70,7 @@ export default function App() {
                   )}
                 />
                 <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path='/requests' component={Requests} />
               </Switch>
             </main>
           </UsersContext.Provider>
