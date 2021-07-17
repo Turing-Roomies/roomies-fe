@@ -5,17 +5,19 @@ export default function Login() {
 
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
+    const [formError, setFormError] = useState(false)
 
     
     const handleChange = event => {
         event.target.name === 'userName' ? setUserName(event.target.value) : setPassword(event.target.value)
+        setFormError(false)
     }
 
     function handleSubmit(event) {
         event.preventDefault()
-        console.log()
-        //IF either input is empty, or wrong, conditionally render
-        //a message that says "Username or password was incorrect"
+        if(!userName || !password){
+            setFormError(true)
+        }
         clearInputs()
     }
 
@@ -47,6 +49,7 @@ export default function Login() {
                         />
                     </label>
                     <button className='submit-button' onClick={event => handleSubmit(event)} type='submit'>Login</button>
+                    {formError && <h1>UserName or Password is missing!</h1>}
                 </div>
             </form>
         </div>
