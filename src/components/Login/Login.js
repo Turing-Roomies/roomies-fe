@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
+import usersContext from '../../Context/UsersContext'
 
-
-export default function Login() {
+export default function Login({setCurrentUser}) {
 
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [formError, setFormError] = useState(false)
-
+    const [authenticateError, setAuthenticateError] = useState(false)
+    // const [currentUser, setCurrentUser] = useState({})
+    
+    const users = useContext(usersContext)
     
     const handleChange = event => {
         event.target.name === 'userName' ? setUserName(event.target.value) : setPassword(event.target.value)
@@ -15,15 +18,25 @@ export default function Login() {
 
     function handleSubmit(event) {
         event.preventDefault()
-        if(!userName || !password){
-            setFormError(true)
-        }
+        userName && password ? authenticate() : setFormError(true)
         clearInputs()
     }
 
     const clearInputs = () => {
         setUserName('')
         setPassword('')
+    }
+
+    const authenticate = () => {
+        users.find(user => {
+            if(user.attributes.name === userName && user.attributes.email === password) {
+                setCurrentUser(user)
+                return
+            } else {
+                console.log('DENIED')
+                setAuthenticateError(true)
+            }
+        })
     }
 
     return (
