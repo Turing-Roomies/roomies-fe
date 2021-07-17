@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+
 
 export default function Login() {
 
+    const [userName, setUserName] = useState('')
+    const [password, setPassword] = useState('')
+
+    
+    const handleChange = event => {
+        event.target.name === 'userName' ? setUserName(event.target.value) : setPassword(event.target.value)
+    }
+
     function handleSubmit(event) {
         event.preventDefault()
+        console.log()
+        //IF either input is empty, or wrong, conditionally render
+        //a message that says "Username or password was incorrect"
+        
     }
+
 
     return (
         <div>
@@ -13,12 +27,18 @@ export default function Login() {
                     <label>User Name
                         <input 
                         type='text'
+                        onChange={event => handleChange(event)}
+                        value={userName}
+                        name='userName'
                         required
                         />
                     </label>
                     <label>password
                         <input 
                         type='text'
+                        onChange={event => handleChange(event)}
+                        value={password}
+                        name='password'
                         required
                         />
                     </label>
@@ -28,3 +48,4 @@ export default function Login() {
         </div>
     )
 }
+
