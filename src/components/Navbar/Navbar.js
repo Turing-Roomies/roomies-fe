@@ -1,10 +1,10 @@
-import React from 'react'
-import { NavLink, Link } from 'react-router-dom'
-import './Navbar.scss'
+import React from "react"
+import { NavLink, Link } from "react-router-dom"
+import "./Navbar.scss"
 
 export default function Navbar() {
-  const linkStyle = {textDecoration: 'none', color: 'black'}
-  const activeStyle = {color: '#157A6E'}
+  const linkStyle = { textDecoration: "none", color: "black" }
+  const activeStyle = { color: "#157A6E" }
   return (
     <header>
       <nav>
