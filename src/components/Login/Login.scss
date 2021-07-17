@@ -1,1 +1,38 @@
 @import '../../index.scss';
+
+.submit-button {
+  background-color: transparent;
+  border: solid black 1px;
+  font-family: $primaryFont;
+  height: 1.73em;
+}
+
+.submit-button:hover {
+  background-color: $mediumGreen;
+  border: solid $mediumGreen 1px;
+  color: white;
+}
+
+.form-container {
+  @include flex(row);
+  align-items: space-between;
+  margin-left: 5em;
+}
+
+.wrong-credentials {
+  color: rgb(244, 57, 57);
+}
+
+.wrong-credentials, 
+.form-container,
+input {
+  font-family: $primaryFont;
+}
+
+input {
+  font-family: $primaryFont;
+  height: 1.5em;
+  border: solid black 1px;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
