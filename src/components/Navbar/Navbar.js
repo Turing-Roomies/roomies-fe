@@ -5,7 +5,7 @@ import CurrentUserContext from "../../Context/CurrentUserContext"
 
 export default function Navbar({ setCurrentUser }) {
   const linkStyle = { textDecoration: "none", color: "black" }
-  const activeStyle = { color: "#157A6E" }
+  const activeStyle = { color: "#499F68" }
 
   const user = useContext(CurrentUserContext)
 
