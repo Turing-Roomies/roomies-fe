@@ -8,7 +8,6 @@ export default function Home() {
     <section className='welcome-section'>
       <div className='welcome-container' >
         <h2 className='welcome-message'>Find your<br></br>perfect<br></br> match.</h2>
-        <Login/>
       </div>
     </section>
   )
