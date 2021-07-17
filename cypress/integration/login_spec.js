@@ -10,5 +10,11 @@ describe('Home', () => {
           .get('h1').should('contain', 'Could not find login credentials! Please create an account or try again!')
     })
 
-
+    it('Should display a welcome message if a user\'s credentials are found', () => {
+        cy.get('input[name=userName]').type('Harrison')
+          .get('input[name=password]').type('harrison@example.com')
+          .get('.submit-button').click()
+          .get('h1').should('contain', 'Welcome, Harrison!')
+          .get('.nav-links > li').eq(0).should('contain', 'Logout')
+    })
 })
