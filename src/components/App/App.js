@@ -47,11 +47,16 @@ export default function App() {
     }))
   }
 
+  const userValue = {
+    currentUser,
+    users
+  }
+
   return (
-    <CurrentUserContext.Provider value={currentUser}>
+    // <CurrentUserContext.Provider value={currentUser}>
       <RequestRoomieContext.Provider value={requestRoomie}>
         {/* <ErrorContext.Provider value={error}> */}
-          <UsersContext.Provider value={users}>
+          <UsersContext.Provider value={userValue}>
             <main>
               <Navbar setCurrentUser={setCurrentUser}/>
               <Switch>
@@ -76,6 +81,6 @@ export default function App() {
           </UsersContext.Provider>
         {/* </ErrorContext.Provider> */}
       </RequestRoomieContext.Provider>
-    </CurrentUserContext.Provider>
+    // </CurrentUserContext.Provider>
   )
 }
