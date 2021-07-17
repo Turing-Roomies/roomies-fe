@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import './Card.scss'
-import locationIcon from '../../assets/location-icon.png'
-import userIcon from '../../assets/user-icon.png'
+import locationIcon from '../../assets/location-icon-orange.png'
+import userIcon from '../../assets/user-icon-orange.png'
 import RequestRoomieContext from '../../Context/RequestRoomieContext'
 
 export default function Card({ user }) {
