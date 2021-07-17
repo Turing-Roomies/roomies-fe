@@ -62,7 +62,7 @@ export default function App() {
                       {!currentUser ? (
                         <Login setCurrentUser={setCurrentUser} />
                       ) : (
-                        <h1>{`Welcome, ${currentUser.attributes.name}!`}</h1>
+                        <h1 className="welcomeUser">{`Welcome, ${currentUser.attributes.name}!`}</h1>
                       )}
                       <Home />
                     </div>
