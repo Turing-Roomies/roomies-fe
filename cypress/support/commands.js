@@ -3,6 +3,12 @@ Cypress.Commands.add('loadDashboard', () => {
   cy.get('.nav-links > li > a').click()
 })
 
+Cypress.Commands.add('logInHarrison', () => {
+    cy.get('input[name=userName]').type('John').should('have.value', 'John')
+      .get('input[name=password]').type('john@example.com').should('have.value', 'john@example.com')
+      .get('.submit-button').click()
+})
+
 Cypress.Commands.add('fetchRoomies', () => {
     cy.intercept('https://turing-roomies-be.herokuapp.com/api/v1/users',
     {
