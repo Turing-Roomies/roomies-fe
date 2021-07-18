@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Switch, Route } from "react-router-dom"
 import Navbar from "../Navbar/Navbar"
 import Home from "../Home/Home"
-
+import smileyIcon from '../../assets/green-smiley.png'
 import dummyData from "../../utilities/dummyData"
 
 import "./App.scss"
@@ -62,7 +62,7 @@ export default function App() {
                       {!currentUser ? (
                         <Login setCurrentUser={setCurrentUser} />
                       ) : (
-                        <h1 className="welcomeUser">{`Welcome, ${currentUser.attributes.name}!`}</h1>
+                        <h3 className='welcome-header'>{`Welcome, ${currentUser.attributes.name}!`} <img className='smiley-icon' src={smileyIcon} alt='smiley face icon'/> </h3>
                       )}
                       <Home />
                     </div>
