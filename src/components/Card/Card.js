@@ -9,6 +9,7 @@ const { name, location, gender, age } = user.attributes
 const [request, setRequest] = useState(false)
 const cursor = {cursor: 'pointer'}
 
+
   const changeRequest = () => {
     setRequest(true)
   }
@@ -30,7 +31,7 @@ const cursor = {cursor: 'pointer'}
         </div>
         {request ? <button className='req-contact' disabled={true}>Request sent!</button> 
         : <button className='req-contact' onClick={changeRequest} style={cursor} >Request Contact</button> 
-        }
+        } 
       </div>
     </article>
   )
