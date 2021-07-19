@@ -10,6 +10,7 @@ const { id, attributes: {name, location, gender, age } } = user
 const [request, setRequest] = useState(false)
 const cursor = {cursor: 'pointer'}
 const { currentUser } = useContext(UsersContext)
+const requestRoomie = useContext(RequestRoomieContext)
 
   const changeRequest = () => {
     requestRoomie(currentUser.id, id)
