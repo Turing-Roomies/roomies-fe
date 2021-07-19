@@ -11,7 +11,7 @@ import Login from "../Login/Login"
 import UsersContext from "../../Context/UsersContext"
 import ErrorContext from "../../Context/ErrorContext"
 import RequestRoomieContext from "../../Context/RequestRoomieContext"
-import { getUsers } from "../../utilities/apiCalls"
+import { getUsers, postRequest } from "../../utilities/apiCalls"
 
 export default function App() {
   const [users, setUsers] = useState([])
@@ -24,22 +24,32 @@ export default function App() {
         const response = await getUsers()
         setUsers(response.data)
       } catch (err) {
-        setError(err)
+        setError(err.message)
       }
     }
     fetchUsers()
   }, [])
 
-  const requestRoomie = async (id) => {
-    // const updatedCurrentUser = await(handleRoomieRequest)
-    // setCurrentUser(response)
-    // setCurrentUser((prevUser) => ({
-    //   ...prevUser,
-    //   attributes: {
-    //     ...prevUser.attributes,
-    //     roomies: [...prevUser.attributes.roomies, { id, status: "pending" }],
-    //   },
-    // }))
+  const requestRoomie = async (reqId, recId) => {
+    const reqBody = {
+      "requestor_id": reqId,
+      "receiver_id": recId
+    }
+    try{
+      const response = await postRequest(reqBody)
+      setCurrentUser(response.data)
+      // const updatedCurrentUser = await(handleRoomieRequest)
+      // setCurrentUser(response)
+      // setCurrentUser((prevUser) => ({
+      //   ...prevUser,
+      //   attributes: {
+      //     ...prevUser.attributes,
+      //     roomies: [...prevUser.attributes.roomies, { id, status: "pending" }],
+      //   },
+      // }))
+    } catch (err) {
+      setError(err.message)
+    }
   }
 
   const userValue = {
