@@ -1,27 +1,32 @@
-import React, { useState, useContext, useRef } from "react"
+import React, { useState,  useRef } from "react"
 import usersContext from "../../Context/UsersContext"
+import { getCurrentUser } from '../../utilities/apiCalls'
 import './Login.scss'
 
 export default function Login({ setCurrentUser }) {
-  const userNameRef = useRef()
+  const emailRef = useRef()
   const passwordRef = useRef()
-  const [authenticateError, setAuthenticateError] = useState(false)
-  const { users } = useContext(usersContext)
+  const [authenticateError, setAuthenticateError] = useState('')
 
 
-  function handleSubmit(event) {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    const userLogin = users.find((user) =>  user.attributes.name === userNameRef.current.value && user.attributes.email === passwordRef.current.value )
-    if(userLogin) {
-      setCurrentUser(userLogin)
-    }else{
-      setAuthenticateError(true)
+    const logInInfo = {
+      "email": emailRef.current.value,
+      "password": passwordRef.current.value
+    }   
+    try {
+      setAuthenticateError('')
+      const currentUser = await getCurrentUser(logInInfo)
+      setCurrentUser(currentUser.data)
+    } catch (err) {
+      setAuthenticateError('Could not find login credentials. Please create an account or try again!')
       clearInputs()
     }
   }
 
   const clearInputs = () => {
-    userNameRef.current.value = ""
+    emailRef.current.value = ""
     passwordRef.current.value = ""
   }
 
@@ -30,14 +35,14 @@ export default function Login({ setCurrentUser }) {
     <div className='form-container'>
       <form onSubmit={e => handleSubmit(e)}>
         <div className='input-container'>
-          <label className='username'> Username
-            <input type="text" ref={userNameRef} name="userName" required />
+          <label className='username'> Email
+            <input type="email" ref={emailRef} name="userName" required />
           </label>
           <label className='password'> Password
             <input type="password" ref={passwordRef} name="password" required />
           </label>
           <button className="submit-button" type="submit" >Login</button>
-          {authenticateError && (<p className='wrong-credentials'>Could not find login credentials. Please create an account or try again!</p>)}
+          {authenticateError && (<p className='wrong-credentials'>{authenticateError}</p>)}
         </div>
       </form>
     </div>

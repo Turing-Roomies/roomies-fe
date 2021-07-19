@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom"
 import Navbar from "../Navbar/Navbar"
 import Home from "../Home/Home"
 import smileyIcon from '../../assets/green-smiley.png'
-import dummyData from "../../utilities/dummyData"
+// import dummyData from "../../utilities/dummyData"
 import Requests from '../Requests/Requests'
 import "./App.scss"
 import Dashboard from "../Dashboard/Dashboard"
@@ -27,10 +27,7 @@ export default function App() {
         setError(err)
       }
     }
-    // fetchUsers()
-    // Commented out to use dummy data
-
-    setUsers(dummyData.data)
+    fetchUsers()
   }, [])
 
   const requestRoomie = async (id) => {
