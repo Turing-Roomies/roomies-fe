@@ -5,7 +5,7 @@ import UsersContext from "../../Context/UsersContext"
 import homeIcon from '../../assets/home.png'
 
 export default function Dashboard() {
-  const users = useContext(UsersContext)
+  const { users } = useContext(UsersContext)
   const cards = users.map((user) => {
     return <Card user={user} key={user.id} />
   })

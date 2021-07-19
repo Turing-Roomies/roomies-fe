@@ -11,7 +11,7 @@ const dummyData = {
             },
             "gender": "male",
             "age": 26,
-            "roomies": [{id: 2, status: "pending"}]
+            "roomies": [{id: '2', status: "pending"}, {id: '4', status: "pending"}]
         }
     },
     {

@@ -6,7 +6,7 @@ export default function Login({ setCurrentUser }) {
   const userNameRef = useRef()
   const passwordRef = useRef()
   const [authenticateError, setAuthenticateError] = useState(false)
-  const users = useContext(usersContext)
+  const { users } = useContext(usersContext)
 
 
   function handleSubmit(event) {
