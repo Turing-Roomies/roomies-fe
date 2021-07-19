@@ -5,54 +5,34 @@ export const getUsers = async () => {
   try {
     const response = await fetch(
       "https://turing-roomies-be.herokuapp.com/api/v1/users"
-    );
-    const checkedResponse = checkResponse(response);
+    )
+    const checkedResponse = checkResponse(response)
     return checkedResponse;
   } catch (err) {
     throw Error(err.message);
   }
-};
+}
 
-export const getCurrentUser = async (email, password) => {
-  try {
-    const response = await fetch('https://turing-roomies-be.herokuapp.com/api/v1/session',
-      {
-      method: 'POST',
-      body: JSON.stringify({
-        "email": email,
-        "password": password
-      }),
-      headers: {
-        'Content-Type': 'application.json'
-      }
-    })
-    const checkedResponse = checkResponse(response)
-    return checkedResponse
-  } catch (err) {
-    throw Error(err.message)
-  }
+export const getCurrentUser = async (data) => {
+  const response = await fetch('https://turing-roomies-be.herokuapp.com/api/v1/sessions',
+    {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  const checkedResponse = checkResponse(response)
+  return checkedResponse
 }
 
 
-// export const handleRoomieRequest = async (id) => {//currentUser's ID and requestedRoomie's id
-//   const currentUser = useContext(CurrentUserContext)
-//   try {
-//     const response = await fetch(`https://turing-roomies-be.herokuapp.com/api/v1/users/${currentUser.id}`, {
-//       method: 'PATCH',
-//       body: JSON.stringify(id),//this is a request object that goes in roomies array
-//       headers: {
-//         'Content-Type': 'application.json'
-//       }
-//     })    
-//   }
-// }
-
 const checkResponse = (response) => {
   if (response.ok) {
-    return response.json();
+    return response.json()
   }
   handleStatusError(response.status);
-};
+}
 
 const handleStatusError = (status) => {
   if (status === 404) {
@@ -62,4 +42,4 @@ const handleStatusError = (status) => {
     throw Error("Sorry, this page isn't working!");
   }
   throw Error("Sorry, something went wrong!");
-};
+}
