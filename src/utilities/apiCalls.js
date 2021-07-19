@@ -6,12 +6,32 @@ export const getUsers = async () => {
     const response = await fetch(
       "https://turing-roomies-be.herokuapp.com/api/v1/users"
     );
-    const checkedResponse = await checkResponse(response);
+    const checkedResponse = checkResponse(response);
     return checkedResponse;
   } catch (err) {
     throw Error(err.message);
   }
 };
+
+export const getCurrentUser = async (email, password) => {
+  try {
+    const response = await fetch('https://turing-roomies-be.herokuapp.com/api/v1/session',
+      {
+      method: 'POST',
+      body: JSON.stringify({
+        "email": email,
+        "password": password
+      }),
+      headers: {
+        'Content-Type': 'application.json'
+      }
+    })
+    const checkedResponse = checkResponse(response)
+    return checkedResponse
+  } catch (err) {
+    throw Error(err.message)
+  }
+}
 
 
 // export const handleRoomieRequest = async (id) => {//currentUser's ID and requestedRoomie's id
