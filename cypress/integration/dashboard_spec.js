@@ -24,4 +24,8 @@ describe('Dashboard', () => {
           .get('.card').eq(5).should('contain', 'Dustin', 'Orlando, FL', 'male', '24')
     })
 
+    it('Should not display Request Contact button if user is not logged in', () => {
+        cy.get('.card > .req-contact').should('not.exist')
+    })
+
 })
