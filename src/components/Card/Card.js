@@ -3,8 +3,6 @@ import './Card.scss'
 import locationIcon from '../../assets/location-icon-orange.png'
 import userIcon from '../../assets/user-icon-orange.png'
 import UsersContext from "../../Context/UsersContext"
-// import RequestRoomieContext from '../../Context/RequestRoomieContext'
-
 export default function Card({ user }) {
 const { id, attributes: {name, location, gender, age } } = user
 const [request, setRequest] = useState(false)

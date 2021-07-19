@@ -21,4 +21,10 @@ describe('Home', () => {
           .get('.nav-links > li').eq(0).should('contain', 'Dashboard')
           .get('form').should('not.exist')
     })
+
+    it('Should display Request Contact button if user is logged in', () => {
+        cy.logInHarrison()
+          .get('.nav-links > li > a').click()
+          .get('.card > .req-contact').should('be.visible')
+    })
 })
