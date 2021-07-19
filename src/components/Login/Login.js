@@ -1,6 +1,6 @@
 import React, { useState,  useRef } from "react"
 import usersContext from "../../Context/UsersContext"
-import { getCurrentUser } from '../../utilities/apiCalls'
+import { postRequest } from '../../utilities/apiCalls'
 import './Login.scss'
 
 export default function Login({ setCurrentUser }) {
@@ -15,9 +15,10 @@ export default function Login({ setCurrentUser }) {
       "email": emailRef.current.value,
       "password": passwordRef.current.value
     }   
+    const query = 'sessions'
     try {
       setAuthenticateError('')
-      const currentUser = await getCurrentUser(logInInfo)
+      const currentUser = await postRequest(query, logInInfo)
       setCurrentUser(currentUser.data)
     } catch (err) {
       setAuthenticateError('Could not find login credentials. Please create an account or try again!')
