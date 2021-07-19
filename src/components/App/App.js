@@ -35,18 +35,10 @@ export default function App() {
       "requestor_id": reqId,
       "receiver_id": recId
     }
+    const query = 'roomie_requests'
     try{
-      const response = await postRequest(reqBody)
+      const response = await postRequest(query, reqBody)
       setCurrentUser(response.data)
-      // const updatedCurrentUser = await(handleRoomieRequest)
-      // setCurrentUser(response)
-      // setCurrentUser((prevUser) => ({
-      //   ...prevUser,
-      //   attributes: {
-      //     ...prevUser.attributes,
-      //     roomies: [...prevUser.attributes.roomies, { id, status: "pending" }],
-      //   },
-      // }))
     } catch (err) {
       setError(err.message)
     }
