@@ -36,13 +36,13 @@ export default function App() {
   const requestRoomie = async (id) => {
     // const updatedCurrentUser = await(handleRoomieRequest)
     // setCurrentUser(response)
-    setCurrentUser((prevUser) => ({
-      ...prevUser,
-      attributes: {
-        ...prevUser.attributes,
-        roomies: [...prevUser.attributes.roomies, { id, status: "pending" }],
-      },
-    }))
+    // setCurrentUser((prevUser) => ({
+    //   ...prevUser,
+    //   attributes: {
+    //     ...prevUser.attributes,
+    //     roomies: [...prevUser.attributes.roomies, { id, status: "pending" }],
+    //   },
+    // }))
   }
 
   const userValue = {
