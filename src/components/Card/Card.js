@@ -1,12 +1,18 @@
-import React, { useContext } from 'react'
+import React, { useState } from 'react'
 import './Card.scss'
 import locationIcon from '../../assets/location-icon-orange.png'
 import userIcon from '../../assets/user-icon-orange.png'
-import RequestRoomieContext from '../../Context/RequestRoomieContext'
+// import RequestRoomieContext from '../../Context/RequestRoomieContext'
 
 export default function Card({ user }) {
 const { id, attributes: {name, location, gender, age } } = user
-const requestRoomie = useContext(RequestRoomieContext)
+const [request, setRequest] = useState(false)
+const cursor = {cursor: 'pointer'}
+
+  const changeRequest = () => {
+    console.log(id) // Need to patch using the id
+    setRequest(true)
+  }
 
     return (
       <article className='card'>
@@ -24,7 +30,9 @@ const requestRoomie = useContext(RequestRoomieContext)
             <p>{gender}</p>
           </div>
         </div>
-        <button className='req-contact' onClick={ () => requestRoomie(id) }>Request Contact</button>
+        {request ? <button className='req-contact' disabled={true}>Request sent!</button> 
+        : <button className='req-contact' onClick={changeRequest} style={cursor} >Request Contact</button> 
+        }
       </article>
   )
 }

@@ -15,9 +15,10 @@ describe('Home', () => {
     it('Should display a welcome message if a user\'s credentials are found', () => {
         cy.logInHarrison()
           .get('h3').should('contain', 'Welcome, Harrison!')
-          .get('.nav-links > li').should('have.length', '2')
-          .get('.nav-links > li').eq(0).should('contain', 'Logout')
-          .get('.nav-links > li').eq(1).should('contain', 'Dashboard')
+          .get('.nav-links > div > li').should('have.length', '2')
+          .get('.nav-links > div > li').eq(0).should('contain', 'Logout')
+          .get('.nav-links > div > li').eq(1).should('contain', 'Roomie Requests')
+          .get('.nav-links > li').eq(0).should('contain', 'Dashboard')
           .get('form').should('not.exist')
     })
 })

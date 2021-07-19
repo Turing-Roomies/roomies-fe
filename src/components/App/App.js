@@ -4,14 +4,13 @@ import Navbar from "../Navbar/Navbar"
 import Home from "../Home/Home"
 import smileyIcon from '../../assets/green-smiley.png'
 import dummyData from "../../utilities/dummyData"
-
+import Requests from '../Requests/Requests'
 import "./App.scss"
 import Dashboard from "../Dashboard/Dashboard"
 import Login from "../Login/Login"
 import UsersContext from "../../Context/UsersContext"
 import ErrorContext from "../../Context/ErrorContext"
 import RequestRoomieContext from "../../Context/RequestRoomieContext"
-import CurrentUserContext from "../../Context/CurrentUserContext"
 import { getUsers } from "../../utilities/apiCalls"
 
 export default function App() {
@@ -46,11 +45,15 @@ export default function App() {
     }))
   }
 
+  const userValue = {
+    currentUser,
+    users
+  }
+
   return (
-    <CurrentUserContext.Provider value={currentUser}>
       <RequestRoomieContext.Provider value={requestRoomie}>
         {/* <ErrorContext.Provider value={error}> */}
-          <UsersContext.Provider value={users}>
+          <UsersContext.Provider value={userValue}>
             <main>
               <Navbar setCurrentUser={setCurrentUser}/>
               <Switch>
@@ -69,11 +72,11 @@ export default function App() {
                   )}
                 />
                 <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path='/requests' component={Requests} />
               </Switch>
             </main>
           </UsersContext.Provider>
         {/* </ErrorContext.Provider> */}
       </RequestRoomieContext.Provider>
-    </CurrentUserContext.Provider>
   )
 }
