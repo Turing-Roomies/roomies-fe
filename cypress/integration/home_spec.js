@@ -13,7 +13,7 @@ describe('Home', () => {
     it('Should display a log in form', () => {
         cy.get('form').should('be.visible')
           .get('input').should('have.length', 2)
-          .get('input[name=userName]').should('have.attr', 'type', 'text')
+          .get('input[name=userName]').should('have.attr', 'type', 'email')
           .get('input[name=password]').should('have.attr', 'type', 'password')
           .get('button').should('contain', 'Login')
     })
