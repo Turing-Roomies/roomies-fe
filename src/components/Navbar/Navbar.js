@@ -7,7 +7,6 @@ import PropTypes from 'prop-types'
 export default function Navbar({ setCurrentUser }) {
   const linkStyle = { textDecoration: "none", color: "black" }
   const activeStyle = { color: "#499F68" }
-
   const { currentUser } = useContext(UsersContext)
 
   const logout = () => {

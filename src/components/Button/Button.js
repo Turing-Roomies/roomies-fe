@@ -7,7 +7,6 @@ import PropTypes from 'prop-types'
 export default function Button({ id, email }) {
   const { currentUser } = useContext(UsersContext)
   const {requestRoomie, deleteRoomie } = useContext(RequestRoomieContext)
-
   const cursor = {cursor: 'pointer'}
 
   const changeRequest = (query) => {
