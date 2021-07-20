@@ -4,8 +4,6 @@ import UsersContext from '../../Context/UsersContext'
 import './Requests.scss'
 import Card from '../Card/Card'
 
-
-
 export default function Requests() {
   const { currentUser, users } = useContext(UsersContext);
   let connections = []

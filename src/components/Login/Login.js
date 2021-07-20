@@ -8,7 +8,6 @@ export default function Login({ setCurrentUser }) {
   const passwordRef = useRef()
   const [authenticateError, setAuthenticateError] = useState('')
 
-
   const handleSubmit = async (event) => {
     event.preventDefault()
     const logInInfo = {
@@ -30,7 +29,6 @@ export default function Login({ setCurrentUser }) {
     emailRef.current.value = ""
     passwordRef.current.value = ""
   }
-
 
   return (
     <div className='form-container'>
