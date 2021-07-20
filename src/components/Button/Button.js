@@ -8,8 +8,12 @@ const requestRoomie = useContext(RequestRoomieContext)
 
 const cursor = {cursor: 'pointer'}
 
-  const changeRequest = () => {
-    requestRoomie(currentUser.id, id)
+  const changeRequest = (query) => {
+    const reqBody = {
+      "requestor_id": currentUser.id,
+      "receiver_id": id
+    }
+    requestRoomie(query, reqBody)
   }
 
   return (
@@ -19,10 +23,10 @@ const cursor = {cursor: 'pointer'}
       !!currentUser.attributes.roomie_requests_sent.find(user => user.receiver_id === Number(id)) ? <div>Contact Sent!</div> :
       !!currentUser.attributes.roomie_requests_received.find(user => user.requestor_id === Number(id)) ?
         <div>
-          <button>Accept</button>
-          <button>Decline</button>
+          <button onClick={changeRequest('roomies')}>Accept</button>
+          <button onClick={changeRequest('roomie_requests/:id')}>Decline</button>
         </div>
-        : <button className='req-contact' onClick={changeRequest} style={cursor} >Request Contact</button>}
+        : <button className='req-contact' onClick={changeRequest('roomie_requests')} style={cursor} >Request Contact</button>}
     </div>
   )
 }
