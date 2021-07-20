@@ -49,3 +49,7 @@ export default function Login({ setCurrentUser }) {
     </div>
   )
 }
+
+Login.propTypes = {
+  setCurrentUser: PropTypes.object
+}
