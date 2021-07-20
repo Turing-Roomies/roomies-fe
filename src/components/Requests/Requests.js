@@ -27,8 +27,9 @@ export default function Requests() {
   helper(currentUser.attributes.roomies, 'roomie_a_id')
 
 
-  const roomieCards = connections.map(user => {
-    return <Card user={user} key={user.id} />;
+  const roomieCards = connections.map((user, index) => {
+    return <Card user={user} key={index
+  } />;
   })
     
   //We still need to conditionally render a "You have no connections" message
