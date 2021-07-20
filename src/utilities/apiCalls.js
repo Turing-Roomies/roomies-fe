@@ -1,5 +1,3 @@
-import CurrentUserContext from '../Context/CurrentUserContext'
-import { useContext } from 'react'
 
 export const getUsers = async () => {
   try {
@@ -17,6 +15,23 @@ export const postRequest = async (query, data) => {
   try {
     const response = await fetch(`https://turing-roomies-be.herokuapp.com/api/v1/${query}`, {
       method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const checkedResponse = checkResponse(response)
+    return checkedResponse
+  } catch (err) {
+    throw Error(err.message)
+  }
+}
+
+export const deleteRequest = async (query, data) => {
+  console.log(query)
+  try {
+    const response = await fetch(`https://turing-roomies-be.herokuapp.com/api/v1/roomie_requests/${query}`, {
+      method: 'DELETE',
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json'
