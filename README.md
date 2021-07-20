@@ -57,9 +57,12 @@ After completing the steps above to clone the repo:
 
 ## Future Iterations
 - Add a messenger platform so potentials roomies can message each other through the app
-- Allow roomies to cancel a roomie request
 - Add a profile view to display additional information when a roomie's card is clicked
 - Gather more information about each roomies, like hobbies, budget, job, and more
+- Allow new users to create an account
+- Add filter feature so users can filter roomies by certain criteria
+- Allow users to add profile picture
+- Allow users to customize profile with background photo
 
 ## Credits
 #### Authors
