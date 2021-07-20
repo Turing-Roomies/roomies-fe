@@ -38,3 +38,7 @@ export default function Navbar({ setCurrentUser }) {
     </header>
   )
 }
+
+Navbar.propTypes = {
+  setCurrentUser: PropTypes.object
+}
