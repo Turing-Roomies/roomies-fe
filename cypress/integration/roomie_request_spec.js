@@ -17,6 +17,9 @@ describe('Roomie Requests', () => {
       .get('.card > button').should('be.visible')
       .get('.card').eq(1).should('contain', 'Sarah', 'Denver, CO', 'female', '33')
       .get('.card > button').should('be.visible')
+  })
 
+  it('Should display a message if the user has not requested any roomies', () => {
+    
   })
 })
