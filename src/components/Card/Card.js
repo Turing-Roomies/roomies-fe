@@ -8,11 +8,6 @@ import Button from '../Button/Button'
 
 export default function Card({ user }) {
 const { id, attributes: {name, location, gender, age , email} } = user
-const [request, setRequest] = useState(false)
-
-
-
-
 
     return (
       <article className='card'>
@@ -33,4 +28,8 @@ const [request, setRequest] = useState(false)
         <Button id={id} email={email}/>
       </article>
   )
+}
+
+Navbar.propTypes = {
+  user: PropTypes.object
 }
