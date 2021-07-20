@@ -3,19 +3,16 @@ import './Card.scss'
 import locationIcon from '../../assets/location-icon-orange.png'
 import userIcon from '../../assets/user-icon-orange.png'
 import UsersContext from "../../Context/UsersContext"
-// import RequestRoomieContext from '../../Context/RequestRoomieContext'
+
+import Button from '../Button/Button'
 
 export default function Card({ user }) {
-const { id, attributes: {name, location, gender, age } } = user
+const { id, attributes: {name, location, gender, age , email} } = user
 const [request, setRequest] = useState(false)
-const cursor = {cursor: 'pointer'}
-const { currentUser } = useContext(UsersContext)
-const requestRoomie = useContext(RequestRoomieContext)
 
-  const changeRequest = () => {
-    requestRoomie(currentUser.id, id)
-    setRequest(true)
-  }
+
+
+
 
     return (
       <article className='card'>
@@ -33,12 +30,7 @@ const requestRoomie = useContext(RequestRoomieContext)
             <p>{gender}</p>
           </div>
         </div>
-        {!currentUser ? <div></div>
-        
-        : request ? <button className='req-contact' disabled={true}>Request sent!</button> 
-       
-        : <button className='req-contact' onClick={changeRequest} style={cursor} >Request Contact</button> 
-        }
+        <Button id={id} email={email}/>
       </article>
   )
 }
