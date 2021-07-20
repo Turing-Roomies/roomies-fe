@@ -4,26 +4,38 @@ import UsersContext from '../../Context/UsersContext'
 import './Requests.scss'
 import Card from '../Card/Card'
 
-export default function Requests() {
-  const { currentUser, users } = useContext(UsersContext)
-  // const requestRoomie = useContext(RequestRoomieContext)
 
-  if(currentUser.attributes.roomies.length) {
-    const requestCards = users.filter(user => {
-        return currentUser.attributes.roomies.find(element => user.id === element.id)
-    }) 
-    const roomieCards = requestCards.map(user => {
-      return <Card user={user} key={user.id} />
-    })
-    return (
-      <div>
-        {roomieCards}
-      </div>
-  )}
+
+export default function Requests() {
+  const { currentUser, users } = useContext(UsersContext);
+
+  let connections = []
+  
+  const helper = (array, id) => {
+    if (array.length) {
+      array.forEach(request => {
+        users.forEach(user => {
+          if (request[id] === Number(user.id)) {
+                connections.push(user)
+          }
+        })
+      })
+    }
+  }
+  helper(currentUser.attributes.roomie_requests_received, 'requestor_id')
+  helper(currentUser.attributes.roomie_requests_sent, 'receiver_id')
+  helper(currentUser.attributes.roomies, 'roomie_a_id')
+
+
+  const roomieCards = connections.map((user, index) => {
+    return <Card user={user} key={index
+  } />;
+  })
     
-  return(
+  //We still need to conditionally render a "You have no connections" message
+  return (
     <div>
-      <h1>No current requests! Go to your dashboard to find potential roomies!</h1>
+      <div>{roomieCards}</div>
     </div>
   )
 }

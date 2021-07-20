@@ -1,38 +1,56 @@
-import CurrentUserContext from '../Context/CurrentUserContext'
-import { useContext } from 'react'
 
 export const getUsers = async () => {
   try {
     const response = await fetch(
       "https://turing-roomies-be.herokuapp.com/api/v1/users"
-    );
-    const checkedResponse = await checkResponse(response);
+    )
+    const checkedResponse = checkResponse(response)
     return checkedResponse;
   } catch (err) {
     throw Error(err.message);
   }
-};
+}
 
+export const postRequest = async (query, data) => {
+  try {
+    const response = await fetch(`https://turing-roomies-be.herokuapp.com/api/v1/${query}`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const checkedResponse = checkResponse(response)
+    return checkedResponse
+  } catch (err) {
+    throw Error(err.message)
+  }
+}
 
-// export const handleRoomieRequest = async (id) => {//currentUser's ID and requestedRoomie's id
-//   const currentUser = useContext(CurrentUserContext)
-//   try {
-//     const response = await fetch(`https://turing-roomies-be.herokuapp.com/api/v1/users/${currentUser.id}`, {
-//       method: 'PATCH',
-//       body: JSON.stringify(id),//this is a request object that goes in roomies array
-//       headers: {
-//         'Content-Type': 'application.json'
-//       }
-//     })    
-//   }
-// }
+export const deleteRequest = async (query, data) => {
+  console.log(query)
+  try {
+    const response = await fetch(`https://turing-roomies-be.herokuapp.com/api/v1/roomie_requests/${query}`, {
+      method: 'DELETE',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const checkedResponse = checkResponse(response)
+    return checkedResponse
+  } catch (err) {
+    throw Error(err.message)
+  }
+}
+
 
 const checkResponse = (response) => {
   if (response.ok) {
-    return response.json();
+    return response.json()
   }
   handleStatusError(response.status);
-};
+}
 
 const handleStatusError = (status) => {
   if (status === 404) {
@@ -42,4 +60,4 @@ const handleStatusError = (status) => {
     throw Error("Sorry, this page isn't working!");
   }
   throw Error("Sorry, something went wrong!");
-};
+}
