@@ -30,12 +30,7 @@ export default function App() {
     fetchUsers()
   }, [])
 
-  const requestRoomie = async (reqId, recId) => {
-    const reqBody = {
-      "requestor_id": reqId,
-      "receiver_id": recId
-    }
-    const query = 'roomie_requests'
+  const requestRoomie = async (reqBody, query) => {
     try{
       const response = await postRequest(query, reqBody)
       setCurrentUser(response.data)
