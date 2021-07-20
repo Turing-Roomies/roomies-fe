@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import UsersContext from '../../Context/UsersContext'
-// import RequestRoomieContext from '../../Context/RequestRoomieContext'
 import './Requests.scss'
 import Card from '../Card/Card'
 

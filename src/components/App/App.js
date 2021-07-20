@@ -53,7 +53,8 @@ export default function App() {
 
   const userValue = {
     currentUser,
-    users
+    users,
+    setUsers
   }
 
   return (
