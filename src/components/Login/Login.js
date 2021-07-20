@@ -1,5 +1,4 @@
 import React, { useState,  useRef } from "react"
-import usersContext from "../../Context/UsersContext"
 import { postRequest } from '../../utilities/apiCalls'
 import PropTypes from 'prop-types'
 import './Login.scss'

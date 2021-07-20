@@ -62,6 +62,7 @@ export default function App() {
         <UsersContext.Provider value={userValue}>
           <main>
             <Navbar setCurrentUser={setCurrentUser}/>
+            {error && <h1>{error}</h1>}
             <Switch>
               <Route
                 exact

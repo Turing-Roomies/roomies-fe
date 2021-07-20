@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React from 'react'
 import './Card.scss'
 import locationIcon from '../../assets/location-icon-orange.png'
 import userIcon from '../../assets/user-icon-orange.png'
