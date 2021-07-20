@@ -1,4 +1,5 @@
-import React, { useState,  useRef } from "react"
+import React, { useState,  useRef, useContext } from "react"
+import UsersContext from '../../Context/UsersContext'
 import { postRequest } from '../../utilities/apiCalls'
 import PropTypes from 'prop-types'
 import './Login.scss'
@@ -7,6 +8,7 @@ export default function Login({ setCurrentUser }) {
   const emailRef = useRef()
   const passwordRef = useRef()
   const [authenticateError, setAuthenticateError] = useState('')
+  const { users, setUsers } = useContext(UsersContext)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -19,10 +21,16 @@ export default function Login({ setCurrentUser }) {
       setAuthenticateError('')
       const currentUser = await postRequest(query, logInInfo)
       setCurrentUser(currentUser.data)
+      filterUsers(currentUser.data.id)
     } catch (err) {
       setAuthenticateError('Could not find login credentials. Please create an account or try again!')
       clearInputs()
     }
+  }
+
+  const filterUsers = (id) => {
+    const filteredUsers = users.filter(user => !(user.id === id))
+    setUsers(filteredUsers)
   }
 
   const clearInputs = () => {
