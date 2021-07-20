@@ -29,21 +29,6 @@ export const postRequest = async (query, data) => {
   }
 }
 
-export const getCurrentUser = async (data) => {
-  try {
-    const response = await fetch(`https://turing-roomies-be.herokuapp.com/api/v1/${query}`, {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    const checkedResponse = checkResponse(response)
-    return checkedResponse
-  } catch (err) {
-    throw Error(err.message)
-  }
-}
 
 const checkResponse = (response) => {
   if (response.ok) {
