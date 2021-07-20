@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import { NavLink, Link } from "react-router-dom"
 import "./Navbar.scss"
 import UsersContext from "../../Context/UsersContext"
+import PropTypes from 'prop-types'
 
 export default function Navbar({ setCurrentUser }) {
   const linkStyle = { textDecoration: "none", color: "black" }
@@ -40,5 +41,5 @@ export default function Navbar({ setCurrentUser }) {
 }
 
 Navbar.propTypes = {
-  setCurrentUser: PropTypes.object
+  setCurrentUser: PropTypes.func
 }

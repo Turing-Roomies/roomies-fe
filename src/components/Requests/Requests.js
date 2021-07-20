@@ -24,15 +24,14 @@ export default function Requests() {
   }
   helper(currentUser.attributes.roomie_requests_received, 'requestor_id')
   helper(currentUser.attributes.roomie_requests_sent, 'receiver_id')
-  helper(currentUser.attributes.roomies, 'roomie_a_id')
+  helper(currentUser.attributes.roomies, 'receiver_id')
+  helper(currentUser.attributes.roomies, 'requestor_id')
 
 
   const roomieCards = connections.map((user, index) => {
-    return <Card user={user} key={index
-  } />;
+    return <Card user={user} key={index} />;
   })
     
-  //We still need to conditionally render a "You have no connections" message
   return (
     <div>
       <div>{roomieCards}</div>

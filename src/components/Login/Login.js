@@ -1,6 +1,7 @@
 import React, { useState,  useRef } from "react"
 import usersContext from "../../Context/UsersContext"
 import { postRequest } from '../../utilities/apiCalls'
+import PropTypes from 'prop-types'
 import './Login.scss'
 
 export default function Login({ setCurrentUser }) {
@@ -51,5 +52,5 @@ export default function Login({ setCurrentUser }) {
 }
 
 Login.propTypes = {
-  setCurrentUser: PropTypes.object
+  setCurrentUser: PropTypes.func
 }

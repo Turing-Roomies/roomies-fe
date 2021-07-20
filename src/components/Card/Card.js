@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import './Card.scss'
 import locationIcon from '../../assets/location-icon-orange.png'
 import userIcon from '../../assets/user-icon-orange.png'
-import UsersContext from "../../Context/UsersContext"
+import PropTypes from 'prop-types'
 
 import Button from '../Button/Button'
 
@@ -30,6 +30,6 @@ const { id, attributes: {name, location, gender, age , email} } = user
   )
 }
 
-Navbar.propTypes = {
+Card.propTypes = {
   user: PropTypes.object
 }
