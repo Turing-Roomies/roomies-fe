@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import UsersContext from "../../Context/UsersContext"
 import RequestRoomieContext from '../../Context/RequestRoomieContext'
+import PropTypes from 'prop-types'
+
 
 export default function Button({ id, email }) {
   const { currentUser } = useContext(UsersContext)
@@ -37,4 +39,9 @@ export default function Button({ id, email }) {
         : <button className='req-contact' onClick={() => changeRequest('roomie_requests')} style={cursor} >Request Contact</button>}
     </div>
   )
+}
+
+Button.propTypes = {
+  id: PropTypes.string,
+  email: PropTypes.string
 }
