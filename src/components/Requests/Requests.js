@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
 import UsersContext from '../../Context/UsersContext'
-import './Requests.scss'
 import Card from '../Card/Card'
+import "./Requests.scss"
+import homeIcon from '../../assets/home.png'
 
 export default function Requests() {
   const { currentUser, users } = useContext(UsersContext);
@@ -27,9 +28,11 @@ export default function Requests() {
     return <Card user={user} key={index} />;
   })
     
-  return (
-    <div>
-      <div>{roomieCards}</div>
-    </div>
+  
+  return ( 
+    <section>
+      <h3 className='roomies-header'>Roomie Requests & Connections <img className='home-icon'src={homeIcon} alt='home icon'/></h3>
+      <div className='connection-container'>{roomieCards}</div>
+    </section>
   )
 }

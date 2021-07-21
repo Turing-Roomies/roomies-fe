@@ -12,7 +12,7 @@ export default function Dashboard() {
 
   return <section className='card-section'>
             <h3 className='roomies-header'>Available Roomies <img className='home-icon'src={homeIcon} alt='home icon'/></h3>
-            <div className="cards-container">
+            <div className='cards-container'>
               {cards}
             </div>
           </section>

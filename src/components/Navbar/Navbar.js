@@ -19,19 +19,19 @@ export default function Navbar({ setCurrentUser }) {
       <Link to='/' title='Roomies' style={linkStyle}><h1 className='page-header'>Roomies</h1></Link>
       <div className='link-container'>
         <ul className='nav-links'>
-          {currentUser &&
-          <div>
-            <li>
-              <NavLink to='/' title='Logout' onClick={logout} style={linkStyle} >Logout</NavLink>
-            </li>
-            <li>
-              <NavLink to='/requests' title='Requests Roomies' style={linkStyle} activeStyle={activeStyle}>Roomie Requests</NavLink>
-            </li>
-          </div> 
-          }
           <li>
             <NavLink to='/dashboard' title='Dashboard' style={linkStyle} activeStyle={activeStyle}>Dashboard</NavLink>
           </li>
+            {currentUser &&
+            <li>
+              <NavLink to='/requests' title='Requests Roomies' style={linkStyle} activeStyle={activeStyle}>Connections</NavLink>
+            </li>
+            }
+            {currentUser &&
+            <li>
+              <NavLink to='/' title='Logout' onClick={logout} style={linkStyle} >Logout</NavLink>
+            </li>
+            }
         </ul>
       </div>
       </nav>
