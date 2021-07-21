@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import UsersContext from '../../Context/UsersContext'
 import Card from '../Card/Card'
 import "./Requests.scss"
-import homeIcon from '../../assets/home.png'
 
 export default function Requests() {
   const { currentUser, users } = useContext(UsersContext);
