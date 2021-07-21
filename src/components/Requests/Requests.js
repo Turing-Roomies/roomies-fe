@@ -1,29 +1,35 @@
 import React, { useContext } from 'react'
 import UsersContext from '../../Context/UsersContext'
-// import RequestRoomieContext from '../../Context/RequestRoomieContext'
 import './Requests.scss'
 import Card from '../Card/Card'
 
 export default function Requests() {
-  const { currentUser, users } = useContext(UsersContext)
-  // const requestRoomie = useContext(RequestRoomieContext)
+  const { currentUser, users } = useContext(UsersContext);
+  let connections = []
+  
+  const roomieMaker = (array, id) => {
+    if (array.length) {
+      array.forEach(request => {
+        users.forEach(user => {
+          if (request[id] === Number(user.id)) {
+                connections.push(user)
+          }
+        })
+      })
+    }
+  }
+  roomieMaker(currentUser.attributes.roomie_requests_received, 'requestor_id')
+  roomieMaker(currentUser.attributes.roomie_requests_sent, 'receiver_id')
+  roomieMaker(currentUser.attributes.roomies, 'receiver_id')
+  roomieMaker(currentUser.attributes.roomies, 'requestor_id')
 
-  if(currentUser.attributes.roomies.length) {
-    const requestCards = users.filter(user => {
-        return currentUser.attributes.roomies.find(element => user.id === element.id)
-    }) 
-    const roomieCards = requestCards.map(user => {
-      return <Card user={user} key={user.id} />
-    })
-    return (
-      <div>
-        {roomieCards}
-      </div>
-  )}
+  const roomieCards = connections.map((user, index) => {
+    return <Card user={user} key={index} />;
+  })
     
-  return(
+  return (
     <div>
-      <h1>No current requests! Go to your dashboard to find potential roomies!</h1>
+      <div>{roomieCards}</div>
     </div>
   )
 }

@@ -4,14 +4,14 @@ Cypress.Commands.add('loadDashboard', () => {
 })
 
 Cypress.Commands.add('logInWrongUser', () => {
-    cy.get('input[name=userName]').type('John').should('have.value', 'John')
+    cy.get('input[name=userName]').type('john@email.com').should('have.value', 'john@email.com')
       .get('input[name=password]').type('john@example.com').should('have.value', 'john@example.com')
       .get('.submit-button').click()
 })
 
 Cypress.Commands.add('logInHarrison', () => {
-    cy.get('input[name=userName]').type('Harrison').should('have.value', 'Harrison')
-      .get('input[name=password]').type('harrison@example.com').should('have.value', 'harrison@example.com')
+    cy.get('input[name=userName]').type('harrison@email.com').should('have.value', 'harrison@email.com')
+      .get('input[name=password]').type('test').should('have.value', 'test')
       .get('.submit-button').click()
 })
 
