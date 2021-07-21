@@ -33,7 +33,11 @@ describe('Roomie Requests', () => {
       cy.fetchWyatt()//doesn't exist yet
       cy.visit("http://localhost:3000")//do i need this?
       cy.logInWyatt()
-      // then make a command to sign in as wyatt and to fetch Wyatt's info
+      cy.get('.dashboard').click()
+        .get('.card').should('have.length', 1)
+          .should('contain', 'Harrison', '26', 'Denver, CO', 'male', 'Accept', 'Decline')
+        .get('.accept').click()
+        .get('.card').should('contain', 'harrison@email.com')
       // then accept the friend request and assert the text is correct
     })
 
