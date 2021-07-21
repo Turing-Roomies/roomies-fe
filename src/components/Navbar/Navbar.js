@@ -33,6 +33,13 @@ export default function Navbar({ setCurrentUser }) {
               <NavLink to='/' title='Logout' onClick={logout} style={linkStyle} >Logout</NavLink>
             </li>
             }
+              <NavLink to='/requests' className='roomie-requests' title='Requests Roomies' style={linkStyle} activeStyle={activeStyle}>Roomie Requests</NavLink>
+            </li>
+          </div> 
+          }
+          <li>
+            <NavLink to='/dashboard' className='dashboard' title='Dashboard' style={linkStyle} activeStyle={activeStyle}>Dashboard</NavLink>
+          </li>
         </ul>
       </div>
       </nav>
