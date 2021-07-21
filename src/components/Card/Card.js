@@ -1,18 +1,13 @@
-import React, { useState, useContext } from 'react'
+import React from 'react'
 import './Card.scss'
 import locationIcon from '../../assets/location-icon-orange.png'
 import userIcon from '../../assets/user-icon-orange.png'
-import UsersContext from "../../Context/UsersContext"
+import PropTypes from 'prop-types'
 
 import Button from '../Button/Button'
 
 export default function Card({ user }) {
 const { id, attributes: {name, location, gender, age , email} } = user
-const [request, setRequest] = useState(false)
-
-
-
-
 
     return (
       <article className='card'>
@@ -33,4 +28,8 @@ const [request, setRequest] = useState(false)
         <Button id={id} email={email}/>
       </article>
   )
+}
+
+Card.propTypes = {
+  user: PropTypes.object
 }

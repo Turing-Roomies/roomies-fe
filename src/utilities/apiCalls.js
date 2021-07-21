@@ -28,7 +28,6 @@ export const postRequest = async (query, data) => {
 }
 
 export const deleteRequest = async (query, data) => {
-  console.log(query)
   try {
     const response = await fetch(`https://turing-roomies-be.herokuapp.com/api/v1/roomie_requests/${query}`, {
       method: 'DELETE',

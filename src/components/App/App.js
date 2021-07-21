@@ -3,7 +3,6 @@ import { Switch, Route } from "react-router-dom"
 import Navbar from "../Navbar/Navbar"
 import Home from "../Home/Home"
 import smileyIcon from '../../assets/green-smiley.png'
-// import dummyData from "../../utilities/dummyData"
 import Requests from '../Requests/Requests'
 import "./App.scss"
 import Dashboard from "../Dashboard/Dashboard"
@@ -54,7 +53,8 @@ export default function App() {
 
   const userValue = {
     currentUser,
-    users
+    users,
+    setUsers
   }
 
   return (
@@ -62,6 +62,7 @@ export default function App() {
         <UsersContext.Provider value={userValue}>
           <main>
             <Navbar setCurrentUser={setCurrentUser}/>
+            {error && <h1>{error}</h1>}
             <Switch>
               <Route
                 exact
