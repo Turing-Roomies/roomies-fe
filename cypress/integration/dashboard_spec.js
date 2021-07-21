@@ -13,7 +13,7 @@ describe('Dashboard', () => {
 
     it('Should display the feed with possible roomies before being logged in', () => {
         cy.url().should('eq', 'http://localhost:3000/dashboard')
-        .get(".dashboard").click()
+        // .get(".dashboard").click()
           .get('.cards-container').should('be.visible')
           .get('.card').should('have.length', 2)
 
