@@ -90,3 +90,31 @@ Cypress.Commands.add("fetchRoomies", () => {
 }); 
 
 
+Cypress.Commands.add("postRoomieRequest", () => {
+  cy.intercept( 'POST', 'https://turing-roomies-be.herokuapp.com/api/v1/roomie_requests',
+    {
+      statusCode: 200,
+      body: {
+          "data": {
+         "type": "users",
+        "id": "1",
+        "attributes": {
+          "email": "harrison@email.com",
+          "name": "Harrison",
+          "location": {
+            "city": "Denver",
+            "state": "CO",
+        },
+        "gender": "male",
+        "age": 26,
+        "roomie_requests_sent": [{
+            "requestor_id": 1,
+            "receiver_id": 2
+        }],
+        "roomie_requests_received": [],
+        "roomies": []
+        }
+        }
+      }
+  })
+})
