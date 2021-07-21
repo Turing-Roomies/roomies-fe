@@ -20,10 +20,10 @@ describe('LogInSpec', () => {
 
     it('Should display additional nav-links if a user is logged in', () => {
         cy.logInHarrison()
-          .get('.nav-links > div > li').should('have.length', '2')
-          .get('.nav-links > div > li').eq(0).should('contain', 'Logout')
-          .get('.nav-links > div > li').eq(1).should('contain', 'Roomie Requests')
-          .get('.nav-links > li').eq(0).should('contain', 'Dashboard')
+          .get('.dashboard').should('contain', 'Dashboard')
+          .get('.nav-links > li').should('have.length', '2')
+          .get('.connections').should('contain', 'Connections')
+          .get('.logout').should('contain', 'Logout')
     })
 
     it('Should allow a user to log out', () => {
