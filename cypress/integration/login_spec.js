@@ -25,4 +25,13 @@ describe('Home', () => {
           .get('.nav-links > div > li').eq(1).should('contain', 'Roomie Requests')
           .get('.nav-links > li').eq(0).should('contain', 'Dashboard')
     })
+
+    it('Should allow a user to log out', () => {
+        cy.logInHarrison()
+          .get('.logout').click()
+          .get('.nav-links > li').should('have.length', '1')
+          .get(".nav-links > li").eq(0).should("contain", "Dashboard")
+          .get("form").should("be.visible")
+          .get('h3').should('not.exist')
+    })
 })
