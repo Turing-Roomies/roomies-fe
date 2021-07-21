@@ -79,7 +79,7 @@ Users have the ability to log out, which will route them back to the sign in pag
 
 #### For testing the application:
 After completing the steps above to clone the repo:  
-1. Run `$npx cypress open` to open the Cypress testing GUI
+1. Run `$npm run cypress` to open the Cypress testing GUI
 2. Click on an integration test and allow the test to run
 
 ## Future Iterations
