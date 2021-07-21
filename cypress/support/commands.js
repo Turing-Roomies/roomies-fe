@@ -15,12 +15,20 @@ Cypress.Commands.add('logInHarrison', () => {
       .get('.submit-button').click()
 })
 
+Cypress.Commands.add('harrisonRequestsWyatt', () => {
+    cy.get('.dashboard').click()
+      .get('.req-contact').click()
+})
+
 Cypress.Commands.add('logInWyatt', () => {
     cy.get('input[name=userName]').type('wyatt@email.com').should('have.value', 'wyatt@email.com')
       .get('input[name=password]').type('test').should('have.value', 'test')
       .get('.submit-button').click()
 })
 
+Cypress.Commands.add('logout', () => {
+    cy.get('.logout').click()
+})
 
 Cypress.Commands.add("fetchHarrison", () => {
   cy.intercept( 'POST', 'https://turing-roomies-be.herokuapp.com/api/v1/sessions',
@@ -41,6 +49,35 @@ Cypress.Commands.add("fetchHarrison", () => {
         "age": 26,
         "roomie_requests_sent": [],
         "roomie_requests_received": [],
+        "roomies": []
+        }
+        }
+      }
+  })
+})  
+
+Cypress.Commands.add("fetchWyatt", () => {
+  cy.intercept( 'POST', 'https://turing-roomies-be.herokuapp.com/api/v1/sessions',
+    {
+      statusCode: 200,
+      body: {
+          "data": {
+         "type": "users",
+        "id": "2",
+        "attributes": {
+          "email": "wyatt@email.com",
+          "name": "Wyatt",
+          "location": {
+            "city": "Denver",
+            "state": "CO",
+        },
+        "gender": "male",
+        "age": 30,
+        "roomie_requests_sent": [],
+        "roomie_requests_received": [{
+          "requestor_id": 1,
+          "receiver_id": 2
+    }],
         "roomies": []
         }
         }

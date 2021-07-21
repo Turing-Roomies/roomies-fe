@@ -2,7 +2,7 @@ describe('Roomie Requests', () => {
   beforeEach(() => {
     cy.fetchHarrison()
     cy.fetchRoomies()
-    cy.visit("http://localhost:3000");
+    cy.visit("http://localhost:3000")
     cy.logInHarrison()
   })
 
@@ -23,8 +23,25 @@ describe('Roomie Requests', () => {
       .get(".card").eq(0).should("contain", "Wyatt", "Denver, CO", "male", "30")
       .get(".req-contact").should("be.visible").click()
       .get('.contact-message').should('contain', 'Contact Sent!')
-      .get('.roomie-requests').should('contain', 'Roomie Requests').click()
-  
+      .get('.connections').should('contain', 'Connections').click()
+      .get('.contact-message').should('contain', 'Contact Sent!')
     })
 
+    it.only('Should allow the receiver roomie to accept the request', () => {
+      cy.harrisonRequestsWyatt()
+      cy.logout()
+      cy.fetchWyatt()//doesn't exist yet
+      cy.visit("http://localhost:3000")//do i need this?
+      cy.logInWyatt()
+      // then make a command to sign in as wyatt and to fetch Wyatt's info
+      // then accept the friend request and assert the text is correct
+    })
+
+    it('Should allow the receiver roomie to accept the request', () => {
+      //make a command for harrison to friend wyatt
+      // then log out
+      // then make a command to sign in as wyatt
+      // then delete the friend request and assert the text is correct
+    })
 })
+
