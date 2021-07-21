@@ -14,17 +14,30 @@ describe('Dashboard', () => {
     it('Should display the feed with possible roomies', () => {
         cy.url().should('eq', 'http://localhost:3000/dashboard')
           .get('.cards-container').should('be.visible')
-          .get('.card').should('have.length', 5)
+          .get('.card').should('have.length', 2)
 
           .get('.card').eq(0).should('contain', 'Harrison', 'Denver, CO', 'male', '26')
           .get('.card').eq(1).should('contain', 'Wyatt', 'Denver, CO', 'male', '30')
-          .get('.card').eq(2).should('contain', 'Andrew', 'West Palm Beach, FL', 'male', '25')
-          .get('.card').eq(3).should('contain', 'Sarah', 'Denver, CO', 'female', '33')
-          .get('.card').eq(4).should('contain', 'Michann', 'Denver, CO', 'female', '27')
     })
 
     it('Should not display Request Contact button if user is not logged in', () => {
         cy.get('.card > .req-contact').should('not.exist')
     })
+})
 
+describe('Dashboard with a user', () => {
+     beforeEach( () => {
+        cy.fetchHarrison()
+        cy.fetchRoomies()
+        cy.visit('http://localhost:3000')
+        cy.logInHarrison()
+    })
+
+      it.only("Should display Request Contact button if user is logged in", () => {
+        cy.get(".nav-links > li > a").click()
+          .get(".card")
+          .eq(1)
+          .get(".req-contact")
+          .should("be.visible");
+      })
 })
