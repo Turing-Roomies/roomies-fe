@@ -19,8 +19,9 @@ describe('LogInSpec', () => {
     })
 
     it('Should display additional nav-links if a user is logged in', () => {
-        cy.logInHarrison()
-          .get('.dashboard').should('contain', 'Dashboard')
+      cy.get('.nav-links > li').should('have.length', '1')
+        .get('.dashboard').should('contain', 'Dashboard')
+      cy.logInHarrison()
           .get('.nav-links > li').should('have.length', '2')
           .get('.connections').should('contain', 'Connections')
           .get('.logout').should('contain', 'Logout')
