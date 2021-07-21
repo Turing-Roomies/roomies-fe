@@ -27,12 +27,11 @@ export default function Requests() {
   const roomieCards = connections.map((user, index) => {
     return <Card user={user} key={index} />;
   })
-    
   
-  return ( 
-    <section>
-      <h3 className='roomies-header'>Roomie Requests & Connections <img className='home-icon'src={homeIcon} alt='home icon'/></h3>
-      <div className='connection-container'>{roomieCards}</div>
-    </section>
+  return (
+    <div>
+      {!connections.length && <h1 className='no-roomies-msg'>Sorry, you don't have any roomies yet!</h1>}
+      {roomieCards}
+    </div>
   )
 }
