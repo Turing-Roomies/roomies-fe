@@ -71,7 +71,7 @@ Users have the ability to log out, which will route them back to the sign in pag
 ## Setup Instructions
 #### For viewing the application:
 1. Open your terminal and access the directory you want to place this project in
-2. Run `$git@github.com:Turing-Roomies/roomies-fe.git` to clone the repo
+2. Run `$git clone git@github.com:Turing-Roomies/roomies-fe.git` to clone the repo
 3. `cd` into the root directory of the project
 4. Run `$npm i` to install dependencies
 5. Run `$npm start` to start the web server
