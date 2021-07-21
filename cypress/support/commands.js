@@ -15,6 +15,12 @@ Cypress.Commands.add('logInHarrison', () => {
       .get('.submit-button').click()
 })
 
+Cypress.Commands.add('logInWyatt', () => {
+    cy.get('input[name=userName]').type('wyatt@email.com').should('have.value', 'wyatt@email.com')
+      .get('input[name=password]').type('test').should('have.value', 'test')
+      .get('.submit-button').click()
+})
+
 
 Cypress.Commands.add("fetchHarrison", () => {
   cy.intercept( 'POST', 'https://turing-roomies-be.herokuapp.com/api/v1/sessions',
@@ -66,7 +72,7 @@ Cypress.Commands.add("fetchRoomies", () => {
         "type": "users",
         "id": "2",
         "attributes": {
-            "email": "someother@example.com",
+            "email": "wyatt@email.com",
             "name": "Wyatt",
             "location": {
                 "city": "Denver",
