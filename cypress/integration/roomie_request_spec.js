@@ -6,8 +6,12 @@ describe('Roomie Requests', () => {
   })
 
   it('Should navigate to Roomie Requests when link is clicked', () => {
-    cy.get('.nav-links > div > li').eq(1).should('contain', 'Roomie Requests')
+    cy.get(".nav-links > div > li")
+      .eq(1)
+      .should('contain', 'Roomie Requests')
       .click()
+      .url()
+      .should('eq', 'http://localhost:3000/requests')
   })
 
   it('Should display requests sent if the user has requested contact', () => {
