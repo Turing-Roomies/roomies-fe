@@ -9,10 +9,10 @@ export default function Button({ id, email }) {
   const {requestRoomie, deleteRoomie } = useContext(RequestRoomieContext)
   const cursor = {cursor: 'pointer'}
 
-  const changeRequest = (query) => {
+  const changeRequest = (query, reqId, recId) => {
     const reqBody = {
-      "requestor_id": currentUser.id,
-      "receiver_id": id
+      "requestor_id": reqId,
+      "receiver_id": recId
     }
     requestRoomie(reqBody, query)
   }
@@ -32,10 +32,10 @@ export default function Button({ id, email }) {
       !!currentUser.attributes.roomie_requests_sent.find(user => user.receiver_id === Number(id)) ? <div className='contact-message'>Contact Sent!</div> :
       !!currentUser.attributes.roomie_requests_received.find(user => user.requestor_id === Number(id)) ?
         <div>
-          <button className='accept' onClick={() => changeRequest('roomies')}>Accept</button>
+          <button className='accept' onClick={() => changeRequest('roomies', id , currentUser.id)}>Accept</button>
           <button className='decline' onClick={removeRequest}>Decline</button>
         </div>
-        : <button className='req-contact' onClick={() => changeRequest('roomie_requests')} style={cursor} >Request Contact</button>}
+        : <button className='req-contact' onClick={() => changeRequest('roomie_requests', currentUser.id, id)} style={cursor} >Request Contact</button>}
     </div>
   )
 }
