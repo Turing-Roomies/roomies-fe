@@ -11,7 +11,7 @@ describe('Dashboard', () => {
           .get('.nav-links > li > a').eq(0).should('contain', 'Dashboard')
     })
 
-    it('Should display the feed with possible roomies', () => {
+    it('Should display the feed with possible roomies before being logged in', () => {
         cy.url().should('eq', 'http://localhost:3000/dashboard')
         .get(".dashboard").click()
           .get('.cards-container').should('be.visible')
@@ -37,7 +37,7 @@ describe('Dashboard with a user', () => {
       it("Should display Request Contact button if user is logged in", () => {
         cy.get(".nav-links > li > a").click()
           .get(".card")
-          .eq(1)
+          .eq(0)
           .get(".req-contact")
           .should("be.visible");
       })
