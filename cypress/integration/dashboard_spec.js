@@ -13,6 +13,7 @@ describe('Dashboard', () => {
 
     it('Should display the feed with possible roomies', () => {
         cy.url().should('eq', 'http://localhost:3000/dashboard')
+        .get(".dashboard").click()
           .get('.cards-container').should('be.visible')
           .get('.card').should('have.length', 2)
 
@@ -33,7 +34,7 @@ describe('Dashboard with a user', () => {
         cy.logInHarrison()
     })
 
-      it.only("Should display Request Contact button if user is logged in", () => {
+      it("Should display Request Contact button if user is logged in", () => {
         cy.get(".nav-links > li > a").click()
           .get(".card")
           .eq(1)
