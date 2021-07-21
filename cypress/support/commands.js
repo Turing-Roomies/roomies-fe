@@ -155,3 +155,59 @@ Cypress.Commands.add("postRoomieRequest", () => {
       }
   })
 })
+
+Cypress.Commands.add("acceptRoomieRequest", () => {
+  cy.intercept( 'POST', 'https://turing-roomies-be.herokuapp.com/api/v1/roomies',
+    {
+      statusCode: 200,
+      body: {
+          "data": {
+         "type": "users",
+        "id": "2",
+        "attributes": {
+          "email": "wyatt@email.com",
+          "name": "Wyatt",
+          "location": {
+            "city": "Denver",
+            "state": "CO",
+        },
+        "gender": "male",
+        "age": 30,
+        "roomie_requests_sent": [],
+        "roomie_requests_received": [],
+        "roomies": [{
+          "id": 1,
+          "requestor_id": 1,
+          "receiver_id": 2,
+        }]
+        }
+        }
+      }
+  })
+})
+
+Cypress.Commands.add("deleteRoomieRequest", () => {
+  cy.intercept( 'DELETE', ' https://turing-roomies-be.herokuapp.com/api/v1/roomie_requests/2',
+    {
+      statusCode: 200,
+      body: {
+          "data": {
+         "type": "users",
+        "id": "2",
+        "attributes": {
+          "email": "wyatt@email.com",
+          "name": "Wyatt",
+          "location": {
+            "city": "Denver",
+            "state": "CO",
+        },
+        "gender": "male",
+        "age": 30,
+        "roomie_requests_sent": [],
+        "roomie_requests_received": [],
+        "roomies": []
+        }
+        }
+      }
+  })
+})

@@ -27,25 +27,33 @@ describe('Roomie Requests', () => {
       .get('.contact-message').should('contain', 'Contact Sent!')
     })
 
-    it.only('Should allow the receiver roomie to accept the request', () => {
+    it('Should allow the receiver roomie to ACCEPT the request', () => {
       cy.harrisonRequestsWyatt()
+      cy.acceptRoomieRequest()
       cy.logout()
-      cy.fetchWyatt()//doesn't exist yet
-      cy.visit("http://localhost:3000")//do i need this?
+      cy.fetchWyatt()
+      cy.visit("http://localhost:3000")
       cy.logInWyatt()
       cy.get('.dashboard').click()
         .get('.card').should('have.length', 1)
           .should('contain', 'Harrison', '26', 'Denver, CO', 'male', 'Accept', 'Decline')
         .get('.accept').click()
         .get('.card').should('contain', 'harrison@email.com')
-      // then accept the friend request and assert the text is correct
     })
 
-    it('Should allow the receiver roomie to accept the request', () => {
-      //make a command for harrison to friend wyatt
-      // then log out
-      // then make a command to sign in as wyatt
-      // then delete the friend request and assert the text is correct
+    it('Should allow the receiver roomie to REJECT the request', () => {
+      cy.harrisonRequestsWyatt()
+      cy.deleteRoomieRequest()
+      cy.logout()
+      cy.fetchWyatt()
+      cy.visit("http://localhost:3000")
+      cy.logInWyatt()
+      cy.get('.dashboard').click()
+        .get('.card').should('have.length', 1)
+          .should('contain', 'Harrison', '26', 'Denver, CO', 'male', 'Accept', 'Decline')
+           .get('.decline').click()
+           .get('.card').should('contain', 'Request Contact')
+
     })
 })
 
