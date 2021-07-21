@@ -2,18 +2,40 @@
 
 ### Table of Contents
 - [Roomies](#roomies)
+    - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
+      - [Home Page / Login](#home-page--login)
+      - [Dashboard](#dashboard)
+      - [Request Contact](#request-contact)
+      - [Connections](#connections)
+      - [Logout](#logout)
   - [Learning Goals](#learning-goals)
   - [Features](#features)
   - [Technologies Used](#technologies-used)
   - [Setup Instructions](#setup-instructions)
+      - [For viewing the application:](#for-viewing-the-application)
+      - [For testing the application:](#for-testing-the-application)
   - [Future Iterations](#future-iterations)
   - [Credits](#credits)
       - [Authors](#authors)
       - [Project Managers](#project-managers)
+        - [2021/07/21](#20210721)
 
 ## Overview
+#### Home Page / Login
+![](https://media.giphy.com/media/lhpw1UqL9P27SKD5rw/giphy.gif)
 
+#### Dashboard
+![](https://media.giphy.com/media/myRMMGMw6P3e64VInL/giphy.gif)
+
+#### Request Contact
+![](https://media.giphy.com/media/koh9nnbxqh57qvoShm/giphy.gif)
+
+#### Connections
+![](https://media.giphy.com/media/ScNTDZ57uz3AltR9N1/giphy.gif)
+
+#### Logout
+![](https://media.giphy.com/media/A8qGN2zdFxhVnUWIN8/giphy.gif)
 
 
 - Deployed [LINK](https://turing-roomies.herokuapp.com/)
