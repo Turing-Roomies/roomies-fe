@@ -1,0 +1,46 @@
+{
+  "data": [
+    {
+      "type": "users",
+      "id": "1",
+      "attributes": {
+        "email": "whatever@example.com",
+        "name": "Harrison",
+        "gender": "male",
+        "age": 26,
+        "location": {
+          "city": "Denver",
+          "state": "CO"
+        },
+      "roomies_requests_sent": [],
+      "roomie_requests_received": [],
+      "roomies": []
+      }
+    },
+
+    {
+      "type": "users",
+      "id": "2",
+      "attributes": {
+        "email": "someother@example.com",
+        "name": "Wyatt",
+        "location": {
+          "city": "Denver",
+          "state": "CO"
+        },
+      "gender": "male",
+      "age": 30,
+      "roomies_requests_sent": [],
+      "roomie_requests_received": [],
+      "roomies": []
+      }
+    }
+  ]
+}
+  
+
+
+
+
+
+ 

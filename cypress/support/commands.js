@@ -15,115 +15,199 @@ Cypress.Commands.add('logInHarrison', () => {
       .get('.submit-button').click()
 })
 
-Cypress.Commands.add('fetchRoomies', () => {
-    cy.intercept('https://turing-roomies-be.herokuapp.com/api/v1/users',
+Cypress.Commands.add('harrisonRequestsWyatt', () => {
+    cy.get('.dashboard').click()
+      .get('.req-contact').click()
+})
+
+Cypress.Commands.add('logInWyatt', () => {
+    cy.get('input[name=userName]').type('wyatt@email.com').should('have.value', 'wyatt@email.com')
+      .get('input[name=password]').type('test').should('have.value', 'test')
+      .get('.submit-button').click()
+})
+
+Cypress.Commands.add('logout', () => {
+    cy.get('.logout').click()
+})
+
+Cypress.Commands.add("fetchHarrison", () => {
+  cy.intercept( 'POST', 'https://turing-roomies-be.herokuapp.com/api/v1/sessions',
     {
-        "data": [{
-            "type": "users",
-            "id": "1",
-            "attributes": {
-                "email": "whatever@example.com",
-                "name": "Harrison",
-                "location": {
-                    "city": "Denver",
-                    "state": "CO"
-                },
-                "gender": "male",
-                "age": 26,
-                "roomies": [{
-                    "name": "Wyatt",
-                    "location": "Denver",
-                }]
-            }
+      statusCode: 200,
+      body: {
+          "data": {
+         "type": "users",
+        "id": "1",
+        "attributes": {
+          "email": "harrison@email.com",
+          "name": "Harrison",
+          "location": {
+            "city": "Denver",
+            "state": "CO",
         },
-        {
-            "type": "users",
-            "id": "2",
-            "attributes": {
-                "email": "someother@example.com",
-                "name": "Wyatt",
-                "location": {
-                    "city": "Denver",
-                    "state": "CO"
-                },
-                "gender": "male",
-                "age": 30,
-                "roomies": [
-                    {
-                        "name": "Harrison",
-                        "location": "Denver",
-                    },
-                    {
-                        "name": "Michann",
-                        "location": "Denver"
-                    }
-                ]
-            }
-        },
-        {
-            "type": "users",
-            "id": "3",
-            "attributes": {
-                "email": "emailme@example.com",
-                "name": "Andrew",
-                "location": {
-                    "city": "West Palm Beach",
-                    "state": "FL"
-                },
-                "gender": "male",
-                "age": 25,
-                "roomies": [
-                    {
-                        "name": "Dustin",
-                        "location": "Orlando",
-                    }
-                ]
-            }
-        },
-        {
-            "type": "users",
-            "id": "4",
-            "attributes": {
-                "email": "email@example.com",
-                "name": "Sarah",
-                "location": {
-                    "city": "Denver",
-                    "state": "CO"
-                },
-                "gender": "female",
-                "age": 33,
-                "roomies": [
-                    {
-                        "name": "Michann",
-                        "location": "Denver",
-                    },
-                ]
-            }
-        },
-        {
-            "type": "users",
-            "id": "5",
-            "attributes": {
-                "email": "somebodysemail@example.com",
-                "name": "Michann",
-                "location": {
-                    "city": "Denver",
-                    "state": "CO"
-                },
-                "gender": "female",
-                "age": 27,
-                "roomies": [
-                    {
-                        "name": "Sarah",
-                        "location": "Denver",
-                    },
-                    {
-                        "name": "Wyatt",
-                        "location": "Denver",
-                    }
-                ]
-            }
+        "gender": "male",
+        "age": 26,
+        "roomie_requests_sent": [],
+        "roomie_requests_received": [],
+        "roomies": []
         }
-        ]
-    })
+        }
+      }
+  })
+})  
+
+Cypress.Commands.add("fetchWyatt", () => {
+  cy.intercept( 'POST', 'https://turing-roomies-be.herokuapp.com/api/v1/sessions',
+    {
+      statusCode: 200,
+      body: {
+          "data": {
+         "type": "users",
+        "id": "2",
+        "attributes": {
+          "email": "wyatt@email.com",
+          "name": "Wyatt",
+          "location": {
+            "city": "Denver",
+            "state": "CO",
+        },
+        "gender": "male",
+        "age": 30,
+        "roomie_requests_sent": [],
+        "roomie_requests_received": [{
+          "requestor_id": 1,
+          "receiver_id": 2
+    }],
+        "roomies": []
+        }
+        }
+      }
+  })
+})  
+
+
+Cypress.Commands.add("fetchRoomies", () => {
+  cy.intercept("https://turing-roomies-be.herokuapp.com/api/v1/users", {
+    "data": [{
+        "type": "users",
+        "id": "1",
+        "attributes": {
+            "email": "harrison@email.com",
+            "name": "Harrison",
+            "location": {
+                "city": "Denver",
+                "state": "CO"
+            },
+            "gender": "male",
+            "age": 26,
+            "roomie_requests_sent": [],
+            "roomie_requests_received": [],
+            "roomies": []
+        }
+    },
+    {
+        "type": "users",
+        "id": "2",
+        "attributes": {
+            "email": "wyatt@email.com",
+            "name": "Wyatt",
+            "location": {
+                "city": "Denver",
+                "state": "CO"
+            },
+            "gender": "male",
+            "age": 30,
+            "roomie_requests_sent": [],
+            "roomie_requests_received": [],
+            "roomies": []
+        }
+    }]
+
+  });
+}); 
+
+
+Cypress.Commands.add("postRoomieRequest", () => {
+  cy.intercept( 'POST', 'https://turing-roomies-be.herokuapp.com/api/v1/roomie_requests',
+    {
+      statusCode: 200,
+      body: {
+          "data": {
+         "type": "users",
+        "id": "1",
+        "attributes": {
+          "email": "harrison@email.com",
+          "name": "Harrison",
+          "location": {
+            "city": "Denver",
+            "state": "CO",
+        },
+        "gender": "male",
+        "age": 26,
+        "roomie_requests_sent": [{
+            "requestor_id": 1,
+            "receiver_id": 2
+        }],
+        "roomie_requests_received": [],
+        "roomies": []
+        }
+        }
+      }
+  })
+})
+
+Cypress.Commands.add("acceptRoomieRequest", () => {
+  cy.intercept( 'POST', 'https://turing-roomies-be.herokuapp.com/api/v1/roomies',
+    {
+      statusCode: 200,
+      body: {
+          "data": {
+         "type": "users",
+        "id": "2",
+        "attributes": {
+          "email": "wyatt@email.com",
+          "name": "Wyatt",
+          "location": {
+            "city": "Denver",
+            "state": "CO",
+        },
+        "gender": "male",
+        "age": 30,
+        "roomie_requests_sent": [],
+        "roomie_requests_received": [],
+        "roomies": [{
+          "id": 1,
+          "requestor_id": 1,
+          "receiver_id": 2,
+        }]
+        }
+        }
+      }
+  })
+})
+
+Cypress.Commands.add("deleteRoomieRequest", () => {
+  cy.intercept( 'DELETE', ' https://turing-roomies-be.herokuapp.com/api/v1/roomie_requests/2',
+    {
+      statusCode: 200,
+      body: {
+          "data": {
+         "type": "users",
+        "id": "2",
+        "attributes": {
+          "email": "wyatt@email.com",
+          "name": "Wyatt",
+          "location": {
+            "city": "Denver",
+            "state": "CO",
+        },
+        "gender": "male",
+        "age": 30,
+        "roomie_requests_sent": [],
+        "roomie_requests_received": [],
+        "roomies": []
+        }
+        }
+      }
+  })
 })

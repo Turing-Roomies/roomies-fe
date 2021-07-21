@@ -20,16 +20,12 @@ export default function Navbar({ setCurrentUser }) {
       <div className='link-container'>
         <ul className='nav-links'>
           <li>
-            <NavLink to='/dashboard' title='Dashboard' style={linkStyle} activeStyle={activeStyle}>Dashboard</NavLink>
+            <NavLink to='/dashboard' className='dashboard' title='Dashboard' style={linkStyle} activeStyle={activeStyle}>Dashboard</NavLink>
           </li>
             {currentUser &&
             <li>
-              <NavLink to='/requests' title='Requests Roomies' style={linkStyle} activeStyle={activeStyle}>Connections</NavLink>
-            </li>
-            }
-            {currentUser &&
-            <li>
-              <NavLink to='/' title='Logout' onClick={logout} style={linkStyle} >Logout</NavLink>
+              <NavLink to='/requests' className='connections' title='Requests Roomies' style={linkStyle} activeStyle={activeStyle}>Connections</NavLink>
+              <NavLink to='/' className='logout' title='Logout' onClick={logout} style={linkStyle} >Logout</NavLink>
             </li>
             }
         </ul>
