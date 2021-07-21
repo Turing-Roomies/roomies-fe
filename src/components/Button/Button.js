@@ -29,7 +29,7 @@ export default function Button({ id, email }) {
     <div>
       {!currentUser ? null :
       !!currentUser.attributes.roomies.find(user => user.receiver_id === Number(id) || user.requestor_id === Number(id)) ? <div>{email}</div> :
-      !!currentUser.attributes.roomie_requests_sent.find(user => user.receiver_id === Number(id)) ? <div>Contact Sent!</div> :
+      !!currentUser.attributes.roomie_requests_sent.find(user => user.receiver_id === Number(id)) ? <div className='contact-message'>Contact Sent!</div> :
       !!currentUser.attributes.roomie_requests_received.find(user => user.requestor_id === Number(id)) ?
         <div>
           <button onClick={() => changeRequest('roomies')}>Accept</button>
