@@ -25,6 +25,7 @@ export default function Navbar({ setCurrentUser }) {
             {currentUser &&
             <li>
               <NavLink to='/requests' title='Requests Roomies' style={linkStyle} activeStyle={activeStyle}>Connections</NavLink>
+              <NavLink to='/' className='logout' title='Logout' onClick={logout} style={linkStyle} >Logout</NavLink>
             </li>
             }
             {currentUser &&
