@@ -29,7 +29,7 @@ export default function Requests() {
   })
   
   return (
-    <div>
+    <div className='connection-container'>
       {!connections.length && <h1 className='no-roomies-msg'>Sorry, you don't have any roomies yet!</h1>}
       {roomieCards}
     </div>
