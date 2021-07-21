@@ -39,6 +39,9 @@ describe('Roomie Requests', () => {
           .should('contain', 'Harrison', '26', 'Denver, CO', 'male', 'Accept', 'Decline')
         .get('.accept').click()
         .get('.card').should('contain', 'harrison@email.com')
+        .get('.connections').click()
+        .get('.card').should('contain', 'harrison@email.com')
+
     })
 
     it('Should allow the receiver roomie to REJECT the request', () => {
@@ -53,6 +56,8 @@ describe('Roomie Requests', () => {
           .should('contain', 'Harrison', '26', 'Denver, CO', 'male', 'Accept', 'Decline')
            .get('.decline').click()
            .get('.card').should('contain', 'Request Contact')
+        .get('.connections').click()
+        .get('.no-roomies-msg').should('contain', 'Sorry, you don\'t have any roomies yet!')
 
     })
 })
