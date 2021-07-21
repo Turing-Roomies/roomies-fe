@@ -6,15 +6,15 @@ describe('Roomie Requests', () => {
     cy.logInHarrison()
   })
 
-  it('Should navigate to Roomie Requests when link is clicked', () => {
-    cy.get('.roomie-requests').should('contain', 'Roomie Requests').click()
+  it('Should navigate to Connections when link is clicked', () => {
+    cy.get('.connections').should('contain', 'Connections').click()
       .url().should('eq', 'http://localhost:3000/requests')
   })
 
-it("Should display a message if the user has not requested any roomies", () => {
-    cy.get('.roomie-requests').click()
-    cy.get('.no-roomies-msg').should('contain', 'Sorry, you don\'t have any roomies yet!')
-});
+  it("Should display a message if the user has not requested any roomies", () => {
+      cy.get('.connections').click()
+      cy.get('.no-roomies-msg').should('contain', 'Sorry, you don\'t have any roomies yet!')
+  });
 
   it('Should display requests sent if the user has requested contact', () => {
     cy.postRoomieRequest()
