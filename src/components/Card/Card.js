@@ -3,9 +3,7 @@ import './Card.scss'
 import locationIcon from '../../assets/location-icon-orange.png'
 import userIcon from '../../assets/user-icon-orange.png'
 import PropTypes from 'prop-types'
-
 import Button from '../Button/Button'
-
 export default function Card({ user }) {
 const { id, attributes: {name, location, gender, age , email} } = user
 
