@@ -33,11 +33,18 @@ describe('Dashboard with a user', () => {
         cy.logInHarrison()
     })
 
+
+      it('Should not display the logged in user\'s card once they are logged in', () => {
+        cy.get(".nav-links > li > a").eq(0).click()
+          .get('.card').should('have.length', 1)
+          .get('.card').eq(0).should('contain', 'Wyatt', 'Denver, CO', 'male', '30')
+      })
+
       it("Should display Request Contact button if user is logged in", () => {
         cy.get(".nav-links > li > a").eq(0).click()
           .get(".card")
           .eq(0)
           .get(".req-contact")
-          .should("be.visible");
+          .should("be.visible")
       })
 })
