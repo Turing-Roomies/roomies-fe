@@ -26,11 +26,13 @@
 
 .wrong-credentials, 
 .form-container,
-input {
+.emailInput,
+.passwordInput {
   font-family: $primaryFont;
 }
 
-input {
+.emailInput,
+.passwordInput {
   font-family: $primaryFont;
   height: 1.5em;
   border: solid black 1px;
