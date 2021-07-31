@@ -20,10 +20,14 @@
 font-family: $primaryFont;
 margin-left: 4.5em;
 display: flex;
-// margin-top: 3em;
 }
 
 .home-icon {
   @include dimensions(1em, 1em);
   margin-left: 0.25em;
+}
+
+.combo {
+  display: flex;
+  justify-content: space-between;
 }
