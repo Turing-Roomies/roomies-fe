@@ -43,10 +43,10 @@ export default function Login({ setCurrentUser }) {
       <form onSubmit={e => handleSubmit(e)}>
         <div className='input-container'>
           <label className='username'> Email
-            <input type="email" ref={emailRef} name="userName" required />
+            <input className='emailInput' type="email" ref={emailRef} name="userName" required />
           </label>
           <label className='password'> Password
-            <input type="password" ref={passwordRef} name="password" required />
+            <input className='passwordInput' type="password" ref={passwordRef} name="password" required />
           </label>
           <button className="submit-button" type="submit" >Login</button>
           {authenticateError && (<p className='wrong-credentials'>{authenticateError}</p>)}
