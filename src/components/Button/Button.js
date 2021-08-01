@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import UsersContext from "../../Context/UsersContext"
-import RequestRoomieContext from '../../Context/RequestRoomieContext'
+import ConnectionsContext from '../../Context/ConnectionContext'
 import PropTypes from 'prop-types'
 
 
 export default function Button({ id, email }) {
   const { currentUser } = useContext(UsersContext)
-  const {requestRoomie, deleteRoomie } = useContext(RequestRoomieContext)
+  const {requestRoomie, deleteRoomie } = useContext(ConnectionsContext)
   const cursor = {cursor: 'pointer'}
 
   const changeRequest = (query, reqId, recId) => {

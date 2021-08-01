@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
 import UsersContext from '../../Context/UsersContext'
 import Card from '../Card/Card'
-import "./Requests.scss"
+import "./Connections.scss"
+import homeIcon from '../../assets/home.png'
 
 export default function Requests() {
   const { currentUser, users } = useContext(UsersContext);
@@ -18,6 +19,7 @@ export default function Requests() {
       })
     }
   }
+
   roomieMaker(currentUser.attributes.roomie_requests_received, 'requestor_id')
   roomieMaker(currentUser.attributes.roomie_requests_sent, 'receiver_id')
   roomieMaker(currentUser.attributes.roomies, 'receiver_id')
@@ -28,9 +30,12 @@ export default function Requests() {
   })
   
   return (
-    <div className='connection-container'>
-      {!connections.length && <h1 className='no-roomies-msg'>Sorry, you don't have any roomies yet!</h1>}
-      {roomieCards}
-    </div>
+    <section>
+      <h3 className='roomies-header'>Your Connections <img className='home-icon'src={homeIcon} alt='home icon'/></h3>
+      <div className='connection-container'>
+        {!connections.length && <h1 className='no-roomies-msg'>Sorry, you don't have any roomies yet!</h1>}
+        {roomieCards}
+      </div>
+    </section>
   )
 }
