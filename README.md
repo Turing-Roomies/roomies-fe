@@ -24,15 +24,16 @@
 ## Overview
 #### Home Page / Login
 Users can log in to their account, which will reveal more navigation links.    
-![](https://media.giphy.com/media/lhpw1UqL9P27SKD5rw/giphy.gif)
+![](https://media.giphy.com/media/hbN1fD5avOBqd2fa63/giphy.gif)
 
 #### Dashboard
-When a user is logged in, their dashboard view will display other users and the various stages of contact with the logged in user.  
-![](https://media.giphy.com/media/myRMMGMw6P3e64VInL/giphy.gif)
+When a user is logged in, their dashboard view will display other users and the various stages of contact with the logged in user. The user can also search for other roomies by name or location. 
+
+![](https://media.giphy.com/media/m7rNCHIQeL0Bh2fXqb/giphy.gif)
 
 #### Request Contact
 A logged in user can request contact with a roomie.  When that roomie next logs in, they will be able to accept or decline that request.  If they accept, the roomie's email address will appear for the original user so they may now contact that roomie directly.  
-![](https://media.giphy.com/media/koh9nnbxqh57qvoShm/giphy.gif)
+![](https://media.giphy.com/media/qx2VycoaGF58n2jQli/giphy.gif)
 
 #### Connections
 The Connections view only displays roomies that the current user is in the process of connecting with.  
@@ -43,7 +44,7 @@ Users have the ability to log out, which will route them back to the sign in pag
 ![](https://media.giphy.com/media/A8qGN2zdFxhVnUWIN8/giphy.gif)
 
 
-- Deployed [LINK](https://turing-roomies.herokuapp.com/)
+- Deployed [LINK](https://turing-roomies.herokuapp.com/) (To login use email: andrew@email.com and password: test)
 - Project Spec [LINK](https://mod4.turing.edu/projects/capstone/)
 
 ## Learning Goals
